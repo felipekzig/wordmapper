@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://services.aonaware.com/DictService/DictService.asmx?WSDL" uri="src/conf/xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl"/>
+    <system systemId="file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl" uri="wsdl/DictService.asmx.wsdl"/>
+</catalog>
