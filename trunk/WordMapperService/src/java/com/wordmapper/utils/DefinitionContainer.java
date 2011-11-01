@@ -18,18 +18,26 @@ public class DefinitionContainer {
         this.setDictionary(strDict);
     }
 
-    public void setDefinition(String Definition) {
-        this.Definition = Definition;
+    public void setDefinition(String strDefinition) {
+        this.Definition = this.formatDefinition(strDefinition);
     }
     public String getDefinition() {
         return Definition;
     }
 
-    public void setDictionary(String Dictionary) {
-        this.Dictionary = Dictionary;
+    public void setDictionary(String strDictionary) {
+        this.Dictionary = strDictionary;
     }
     public String getDictionary() {
         return Dictionary;
+    }
+    
+    private String formatDefinition(String Definition){
+        String strDefFormated = "";
+        
+        if (!Definition.isEmpty())  strDefFormated = Definition.trim().replaceAll("(\\[.+?\\])", "").replaceAll("\\s+", " ");
+        
+        return strDefFormated;
     }
     
 }
