@@ -2,4 +2,15 @@
 <resources>
     <string name="hello">Hello World, WordMapperActivity!</string>
     <string name="app_name">AndroidClient</string>
+    <string name="label_dict">Choose a Dictionary</string>"
+    <string-array name=”dicts_array”>
+ 		<item>Mercurio</item>
+ 		<item>Venus</item>
+		<item>Terra</item>		
+		<item>Marte</item>		
+		<item>Jupiter</item>		
+		<item>Saturno</item>
+		<item>Urano</item>		
+		<item>Netuno</item>
+	 </string-array>
 </resources>
