@@ -50,8 +50,7 @@ public class Dictionary {
         } else {
             definitions = this.service.defineInDict(this.getIdMainDict(), this.getWord());
         }
-    
-        
+         
         List<Definition> lstDefinition = definitions.getDefinitions().getDefinition();
         
         for(Definition def : lstDefinition){        
@@ -60,11 +59,7 @@ public class Dictionary {
        
         return response;
     }
-    
-    private Boolean _defineWord(){
-        return true;
-    }
-    
+   
     public String getServerInfo(){
         if (this.service != null) return this.service.serverInfo();
         
