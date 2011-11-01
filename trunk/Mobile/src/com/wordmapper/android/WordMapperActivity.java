@@ -1,6 +1,9 @@
 package com.wordmapper.android;
 
 import android.app.Activity;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.os.Bundle;
 
@@ -11,6 +14,8 @@ public class WordMapperActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        S
+        final Spinner cmbDictionary = (Spinner) findViewById(R.id.cmbDictionary);
+        
+        cmbDictionary.addView(new View(getBaseContext()).)
     }
 }

@@ -14,6 +14,7 @@ import com.wordmapper.utils.Dictionary;
  * REST Web Service
  *
  * @author Felipe
+ * http://localhost:8080/WordMapperService/resources/WordMapper/%7B%22Word%22:%22need%22,%22IdTpOperation%22:1,%22IdMainDict%22:%22wn%22%7D
  */
 @Path("WordMapper")
 public class WordMapperResource {
