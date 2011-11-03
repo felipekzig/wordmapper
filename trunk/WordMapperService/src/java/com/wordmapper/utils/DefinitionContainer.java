@@ -35,7 +35,26 @@ public class DefinitionContainer {
     private String formatDefinition(String Definition){
         String strDefFormated = "";
         
-        if (!Definition.isEmpty())  strDefFormated = Definition.trim().replaceAll("(\\[.+?\\])", "").replaceAll("\\s+", " ");
+        if (!Definition.isEmpty()){
+            Definition = Definition.trim().replaceAll("\\s+", " ");
+            strDefFormated = Definition;
+            
+            int intColchetess = 0;
+            int intIndexIni = 0;
+            for(int i=0; i<=Definition.length();i++){
+                if (Definition.charAt(i)=='['){
+                    intColchetess++;
+                    if (intColchetess==1) intIndexIni = i;
+                }
+                
+                if (Definition.charAt(i)==']'){
+                        intColchetess--;
+                        if (intColchetess==0){
+                            strDefFormated.replace(Definition.substring(intIndexIni, i), "");
+                        }
+                }
+            }
+        }
         
         return strDefFormated;
     }
