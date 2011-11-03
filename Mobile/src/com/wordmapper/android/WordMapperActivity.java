@@ -14,8 +14,8 @@ public class WordMapperActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        final Spinner cmbDictionary = (Spinner) findViewById(R.id.cmbDictionary);
+        Spinner cmbDictionary = (Spinner) findViewById(R.id.cmbDictionary);
         
-        cmbDictionary.addView(new View(getBaseContext()).)
+        cmbDictionary.
     }
 }
