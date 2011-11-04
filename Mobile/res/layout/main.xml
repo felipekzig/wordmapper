@@ -1,18 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal">
-    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:orientation="vertical" android:layout_width="fill_parent">
-        <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout2" android:layout_height="wrap_content">
-            <TextView android:text="Word:" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1"></TextView>
-            <EditText android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_weight="1" android:id="@+id/txtWordRequired">
-                <requestFocus></requestFocus>
-            </EditText>
-        </LinearLayout>
-        <Spinner android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/cmbDictionary"></Spinner>
-        <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout3" android:layout_height="wrap_content" android:weightSum="1">
-            <Button android:layout_height="wrap_content" android:layout_width="178dp" android:id="@+id/btnDefiner" android:text="Define"></Button>
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+<RelativeLayout 
+	android:id="@+id/relativeLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView
+		android:id="@+id/lblWord" 
+		android:text="Word: "
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_alignBottom="@+id/txtWord2Define" 	 
+		android:layout_alignBaseline="@+id/txtWord2Define" 
+		android:layout_alignParentLeft="true">
+	</TextView>
+	
+    <EditText
+    	android:id="@+id/txtWord2Define" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/lblWord"  
+        android:layout_alignParentRight="true" 
+        android:layout_alignParentTop="true">      
+        <requestFocus></requestFocus>
+	</EditText>
+             
+    <Spinner
+    	android:id="@+id/cmbDictionaries"  
+    	android:prompt="@string/dictPrompts"
+    	android:layout_width="wrap_content"
+    	android:layout_height="50dp"
+    	android:layout_below="@+id/txtWord2Define" 
+    	android:layout_alignParentRight="true" 
+    	android:layout_alignParentLeft="true"> 
+    </Spinner>
+    
+    <Button	
+    	android:id="@+id/btnDefine"
+    	android:text="Define"
+    	android:layout_width="153dp" 
+		android:layout_height="wrap_content" 
+        android:layout_below="@+id/cmbDictionaries">
+	</Button>
+         
+    <Button
+    	android:id="@+id/btnReset"
+    	android:text="Reset"
+    	android:layout_width="153dp"  
+    	android:layout_height="wrap_content" 
+        android:layout_alignBottom="@+id/btnDefine"
+        android:layout_alignBaseline="@+id/btnDefine" 
+        android:layout_alignParentRight="true">
+	</Button>
+	
+    <FrameLayout 
+    	android:id="@+id/frameLayout1" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:layout_below="@+id/btnDefine" 
+    	android:layout_alignParentLeft="true" 
+    	android:layout_alignParentBottom="true" 
+    	android:layout_alignParentRight="true">
+        
+        <TextView 
+        	android:id="@+id/lblWordDefinition"
+        	android:text=""  
+        	android:layout_width="match_parent" 
+        	android:layout_height="match_parent">
+        </TextView>
+        
+    </FrameLayout>
+</RelativeLayout>

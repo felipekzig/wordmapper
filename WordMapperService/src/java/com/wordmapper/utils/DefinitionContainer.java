@@ -38,7 +38,7 @@ public class DefinitionContainer {
         if (!Definition.isEmpty()){
             Definition = Definition.trim().replaceAll("\\s+", " ");
             strDefFormated = Definition;
-            
+            /*
             int intColchetess = 0;
             int intIndexIni = 0;
             for(int i=0; i<=Definition.length();i++){
@@ -53,7 +53,7 @@ public class DefinitionContainer {
                             strDefFormated.replace(Definition.substring(intIndexIni, i), "");
                         }
                 }
-            }
+            }*/
         }
         
         return strDefFormated;
