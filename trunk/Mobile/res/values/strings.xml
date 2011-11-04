@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, WordMapperActivity!</string>
     <string name="app_name">AndroidClient</string>
-    <string name="label_dict">Choose a Dictionary</string>"
-    <string-array name=”dicts_array”>
- 		<item>Mercurio</item>
- 		<item>Venus</item>
+    <string name="dictPrompts">Choose a Dictionary</string>
+    <string-array name="dictItens">
+ 		<item>Word Net 2.0 ( Default )</item>
+ 		<item>Oxford</item>
 		<item>Terra</item>		
 		<item>Marte</item>		
 		<item>Jupiter</item>		
