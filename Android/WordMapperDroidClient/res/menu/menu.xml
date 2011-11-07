@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home" android:title="@string/lblMenuHome"/>
+    <item android:id="@+id/Define" android:title="@string/lblMenuDefine"/>
+    <item android:id="@+id/Mapper" android:title="@string/lblMenuMapper" android:enabled="false"/>
+    
+    <item android:id="@+id/Settings" android:title="@string/lblMenuSettings"/>
+    <item android:id="@+id/Define" android:title="@string/lblMenuCredits"/>
+    <item android:id="@+id/Define" android:title="@string/lblMenuDonate"/>
+        
+</menu>
