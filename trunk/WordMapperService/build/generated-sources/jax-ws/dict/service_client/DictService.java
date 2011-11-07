@@ -44,15 +44,8 @@ public class DictService
         super(__getWsdlLocation(), DICTSERVICE_QNAME);
     }
 
-    public DictService(URL wsdlLocation) {
-        super(wsdlLocation, DICTSERVICE_QNAME);
-    }
-
-    public DictService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
-
     /**
+     * 
      * 
      * @return
      *     returns DictServiceSoap
