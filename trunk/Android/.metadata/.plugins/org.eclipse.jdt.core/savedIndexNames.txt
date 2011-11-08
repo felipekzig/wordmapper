@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Felipe\Java\WordMapper\Android\.metadata\.plugins\org.eclipse.jdt.core
-1927105450.index
-1195819569.index

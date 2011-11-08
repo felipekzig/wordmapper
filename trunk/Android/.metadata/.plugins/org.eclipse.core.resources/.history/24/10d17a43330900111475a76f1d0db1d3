@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">WordMapper</string>
-    <string name="lblMenuHome">WordMapper</string>
-    <string name="lblMenuDefine">Define a Word</string>
-</resources>
