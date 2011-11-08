@@ -13,14 +13,17 @@ public final class R {
     public static final class drawable {
         public static final int cert=0x7f020000;
         public static final int define=0x7f020001;
-        public static final int home=0x7f020002;
-        public static final int icon=0x7f020003;
-        public static final int map=0x7f020004;
-        public static final int settings=0x7f020005;
-        public static final int settings2=0x7f020006;
+        public static final int donate=0x7f020002;
+        public static final int home=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int map=0x7f020005;
+        public static final int settings=0x7f020006;
+        public static final int settings2=0x7f020007;
     }
     public static final class id {
+        public static final int Credits=0x7f060004;
         public static final int Define=0x7f060001;
+        public static final int Donate=0x7f060005;
         public static final int Mapper=0x7f060002;
         public static final int Settings=0x7f060003;
         public static final int home=0x7f060000;
