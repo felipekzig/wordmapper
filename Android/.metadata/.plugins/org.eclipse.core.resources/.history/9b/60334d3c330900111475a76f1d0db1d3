@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/home" android:title="@string/lblMenuHome"/>
-    	
-    <item android:id="@+id/Define" android:title="@string/lblMenuDefine"/>
-        
-</menu>
