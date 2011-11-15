@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 
+import br.com.wordmapper.android.interfaces.RequestObject;
+
 import com.google.gson.Gson;
 
 import org.apache.http.HttpEntity;
@@ -20,9 +22,9 @@ public class WMService {
 	private Integer intIdTpOperation;
 	
 	private String responseJson;
-	private Object responseObject;
+	private RequestObject responseObject;
 	
-	public final static String urlWMService = "http://10.0.2.2:8080/WordMapperService/resources/WordMapper/";
+	public final String urlWMService = "http://10.0.2.2:8080/WordMapperService/resources/WordMapper/";
 	
 	public WMService(){	}
 	
@@ -50,7 +52,7 @@ public class WMService {
 	public String getResponseJson(){
 		return this.responseJson;
 	}
-	public Object getResponseJsonObject(){
+	public RequestObject getResponseJsonObject(){
 		return responseObject;
 	}
 	
@@ -60,7 +62,7 @@ public class WMService {
 			
 			this.responseJson = this.getWSJSONResponse();
 			
-			//this.responseObject = this.parseJSON(responseJson);
+			this.responseObject = this.parseJSON(responseJson);
 			
 		} catch(Exception e) {
 			throw e;
@@ -72,12 +74,12 @@ public class WMService {
 		String json = "";
 		
 		json = "{";
-		json = json + " \"Word\":\"" + this.strWord + "\",";
-		json = json + " \"IdTpOperation\":" + this.intIdTpOperation;
+		json = json + "\"Word\":\"" + this.strWord + "\",";
+		json = json + "\"IdTpOperation\":" + this.intIdTpOperation;
 		
 		if (this.strIdMainDict != ""){
 			json = json + ",";
-			json = json + " \"IdMainDict\":\"" + this.strIdMainDict + "\"";
+			json = json + "\"IdMainDict\":\"" + this.strIdMainDict + "\"";
 		}
 		json = json + "}";
 		
@@ -97,7 +99,9 @@ public class WMService {
 	
 	private String getWSJSONResponse() throws Exception{
 		String urlWS = this.urlWMService + URLEncoder.encode(this.buildJSON());
+		
 		this.strIdMainDict = urlWS;
+		
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(urlWS);  
 		
@@ -122,9 +126,9 @@ public class WMService {
 		return null;
 	}
 	
-	private Object parseJSON(String json) throws Exception{
+	private RequestObject parseJSON(String json) throws Exception{
 		try {
-			return new Gson().fromJson(json, Object.class);
+			return new Gson().fromJson(json, RequestObject.class);
 		} catch (Exception e) {
 			throw e;
 		}
