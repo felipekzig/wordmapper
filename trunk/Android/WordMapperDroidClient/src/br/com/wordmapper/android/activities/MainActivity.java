@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main);        
     }
 
     @Override
@@ -29,6 +29,10 @@ public class MainActivity extends Activity {
     		case R.id.Define:
     			this.showDefineActivity();
     		break;
+    		
+    		case R.id.Settings:
+    			this.showSettingsActivity();
+    		break;
     	}
     	
     	return true;
@@ -38,4 +42,10 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(this, DefineActivity.class);
     	startActivity(intent);
     }
+    
+    private void showSettingsActivity(){
+    	Intent intent = new Intent(this, SettingsActivity.class);
+    	startActivity(intent);
+    }
+    
 }
