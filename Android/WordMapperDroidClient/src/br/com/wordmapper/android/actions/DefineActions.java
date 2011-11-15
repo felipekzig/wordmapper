@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class DefineActions implements OnClickListener {
 	
@@ -30,17 +31,23 @@ public class DefineActions implements OnClickListener {
 	private void defineWord(){
 		
 		final EditText txtWord2Define = (EditText) this.defineActivity.findViewById(R.id.txtWord2Define);
+		final Spinner cmbDictionaries = (Spinner) this.defineActivity.findViewById(R.id.cmbDictionaries);
+		
+		Log.i(AppSettings.TAG, ((Long)cmbDictionaries.getSelectedItemId()).toString());
 		
 		WMService service = new WMService();
 		
 		service.setWord(txtWord2Define.getText().toString());
 		service.setTpOperation(1);
+		service.setMainDict("wn");
 		
 		try {
 			service.requestServer();
 			
 			Log.i(AppSettings.TAG, service.getResponseJson());
-			Log.i(AppSettings.TAG, service.getMainDict());
+			Log.i(AppSettings.TAG, service.getResponseJsonObject().Definitions.get(0).Dictionary);
+			Log.i(AppSettings.TAG, service.getResponseJsonObject().Definitions.get(0).Definition);
+			
 		} catch (Exception e) {
 			Log.e(AppSettings.TAG, "Define Action", e);
 		}
