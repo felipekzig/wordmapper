@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/relativeLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent">
+    
+    <TextView 
+    	android:id="@+id/lblWord"
+    	android:text="@string/lblDefineWord" 
+    	android:layout_width="wrap_content"  
+    	android:layout_height="wrap_content" 
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+    	android:layout_alignBaseline="@+id/txtWord2Define" 
+    	android:layout_alignBottom="@+id/txtWord2Define" 
+    	android:layout_alignParentLeft="true">
+    </TextView>
+    
+    
+    <EditText 
+    	android:id="@+id/txtWord2Define" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:layout_alignParentTop="true" 
+    	android:layout_toRightOf="@+id/lblWord" 
+		android:layout_marginLeft="15dp"
+    	android:layout_alignParentRight="true">
+        <requestFocus></requestFocus>
+    </EditText>
+    
+    <Spinner 
+    	android:id="@+id/cmbDictionaries"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"   
+    	android:layout_below="@+id/txtWord2Define" 
+    	android:layout_alignLeft="@+id/lblWord" 
+    	android:layout_alignRight="@+id/txtWord2Define">
+    </Spinner>
+    
+    <LinearLayout
+    	android:id="@+id/linearLayout" 
+    	android:orientation="horizontal"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/cmbDictionaries">
+    
+    	<Button 
+    		android:id="@+id/btnDefine"
+    		android:text="@string/lblDefineAction"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_weight="1">
+    	</Button>
+    	
+    	<Button 
+    		android:id="@+id/btnReset"
+    		android:text="@string/lblResetAction"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_weight="1">
+    	</Button>
+    
+    </LinearLayout>
+        
+ </RelativeLayout>

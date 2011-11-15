@@ -2,6 +2,7 @@ package br.com.wordmapper.android.activities;
 
 import br.com.wordmapper.android.actions.DefineActions;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,11 +32,27 @@ public class DefineActivity extends Activity {
 	    @Override
 	    public boolean onOptionsItemSelected(MenuItem item) {
 	    	switch(item.getItemId()){
+	    		case R.id.Home:
+	    			finish();
+	    		break;
+	    		
 	    		case R.id.Define:
 	    			// Does Nothing
+	    		break;
+	    		
+	    		case R.id.Settings:
+	    			this.showSettingsActivity();
 	    		break;
 	    	}
 	    	
 	    	return true;
 	    }    
+	    
+
+	    
+	    private void showSettingsActivity(){
+	    	Intent intent = new Intent(this, SettingsActivity.class);
+	    	startActivity(intent);
+	    }
+	      
 }
