@@ -19,6 +19,6 @@
 	<string name="lblDefaultDictionary">Default Dictionary: </string>
 	<string name="lblApplyAction">Apply</string>
 	<string name="lblCancelAction">Cancel</string>
-	<string name="lblRegisterAction">Register</string>
+	<string name="lblRegisterAction">Sing Up</string>
 
 </resources>

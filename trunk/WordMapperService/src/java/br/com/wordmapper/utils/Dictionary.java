@@ -1,5 +1,5 @@
 
-package com.wordmapper.utils;
+package br.com.wordmapper.utils;
 
 import com.aonaware.services.webservices.Definition;
 import com.aonaware.services.webservices.WordDefinition;

@@ -1,18 +1,24 @@
 package br.com.wordmapper.android.activities;
 
+import br.com.wordmapper.android.actions.SettingsActions;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class SettingsActivity extends Activity {
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);        
+        setContentView(R.layout.setting);    
+        
+        final Button btnCancel = (Button) findViewById(R.id.btnCancelSettings);
+        btnCancel.setOnClickListener(new SettingsActions(this));
     }
 
     @Override

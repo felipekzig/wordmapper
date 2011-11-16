@@ -2,7 +2,7 @@
 <resources>
 
 	<!-- Menu labels -->
-    <string name="lblMenuHome">WordMapper</string>
+    <string name="lblMenuHome">Início</string>
     <string name="lblMenuDefine">Definir Palavra</string>
     <string name="lblMenuMapper">Mapear Palavra</string>
     
@@ -14,5 +14,11 @@
 	<string name="lblDefineWord">Palavra: </string>
 	<string name="lblDefineAction">Definir</string>
 	<string name="lblResetAction">Limpar</string>
+
+	<!-- Settings Activity labels -->
+	<string name="lblDefaultDictionary">Dicionário Padrão: </string>
+	<string name="lblApplyAction">Aplicar</string>
+	<string name="lblCancelAction">Cancelar</string>
+	<string name="lblRegisterAction">Registrar-se</string>
 
 </resources>
