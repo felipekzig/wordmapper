@@ -1,5 +1,5 @@
 
-package com.wordmapper.service;
+package br.com.wordmapper.service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -7,7 +7,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.google.gson.Gson;
-import com.wordmapper.utils.Dictionary;
+import br.com.wordmapper.utils.Dictionary;
 
 
 /**
@@ -77,6 +77,7 @@ public class WordMapperResource {
     
     private void _defineWord(){
         this.responseJSON.setDefinitions(this.Dict.getDefinitions());
+        this.responseJSON.setWord(this.requestJson.getWord());
     }
      
     private void _mappingWord(){

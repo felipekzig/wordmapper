@@ -4,6 +4,7 @@ import br.com.wordmapper.android.activities.R;
 import br.com.wordmapper.android.utils.AppSettings;
 import br.com.wordmapper.android.utils.WMService;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,10 +13,13 @@ import android.widget.Spinner;
 
 public class DefineActions implements OnClickListener {
 	
-	private View defineActivity;
+	private Activity defineActivity;
+	
+	public DefineActions(Activity activity){
+		this.defineActivity = activity;
+	}
 
 	public void onClick(View v) {
-		this.defineActivity = v.getRootView();
 		
 		switch(v.getId()){
 			case R.id.btnDefine:
@@ -45,14 +49,13 @@ public class DefineActions implements OnClickListener {
 			service.requestServer();
 			
 			Log.i(AppSettings.TAG, service.getResponseJson());
-			Log.i(AppSettings.TAG, service.getResponseJsonObject().Definitions.get(0).Dictionary);
-			Log.i(AppSettings.TAG, service.getResponseJsonObject().Definitions.get(0).Definition);
+			
+			Log.i(AppSettings.TAG, service.getResponseJsonObject().getDefinitions().get(0).getDefinition());
+		
 			
 		} catch (Exception e) {
 			Log.e(AppSettings.TAG, "Define Action", e);
 		}
-		
-		
 		
 	}
 	

@@ -1,7 +1,7 @@
 
-package com.wordmapper.service;
+package br.com.wordmapper.service;
 
-import com.wordmapper.utils.DefinitionContainer;
+import br.com.wordmapper.utils.DefinitionContainer;
 
 import java.util.List;
 /**

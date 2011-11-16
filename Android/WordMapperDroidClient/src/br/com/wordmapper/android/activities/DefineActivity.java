@@ -16,10 +16,10 @@ public class DefineActivity extends Activity {
 	        setContentView(R.layout.define);
 	        
 	        final Button btnDefine = (Button) findViewById(R.id.btnDefine);
-	        btnDefine.setOnClickListener(new DefineActions());
+	        btnDefine.setOnClickListener(new DefineActions(this));
 	        
 	        final Button btnReset = (Button) findViewById(R.id.btnReset);
-	        btnReset.setOnClickListener(new DefineActions());	        
+	        btnReset.setOnClickListener(new DefineActions(this));	        
 	    }
 
 	    @Override

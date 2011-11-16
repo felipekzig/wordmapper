@@ -59,7 +59,7 @@
             </Button>
             
             <Button 
-            	android:id="@+id/lblCancelSettings" 
+            	android:id="@+id/btnCancelSettings" 
             	android:text="@string/lblCancelAction" 
             	android:layout_width="match_parent" 
             	android:layout_height="match_parent"
