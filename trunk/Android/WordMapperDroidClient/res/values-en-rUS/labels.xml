@@ -21,4 +21,14 @@
 	<string name="lblCancelAction">Cancel</string>
 	<string name="lblRegisterAction">Sing Up</string>
 
+	<!--  Sing up Activity labels -->
+	<string name="lblFirstName">First Name: </string>
+	<string name="lblLastName">Last Name: </string>
+	<string name="lblEmail">E-mail: </string>
+	<string name="lblCity">City: </string>
+	<string name="lblCountry">Country: </string>
+	<string name="lblPostCode">ZIP Code: </string>
+	
+	<string name="lblSingUp">Sing Up</string>
+	
 </resources>

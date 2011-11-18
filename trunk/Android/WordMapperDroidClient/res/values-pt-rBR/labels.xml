@@ -20,5 +20,15 @@
 	<string name="lblApplyAction">Aplicar</string>
 	<string name="lblCancelAction">Cancelar</string>
 	<string name="lblRegisterAction">Registrar-se</string>
-
+	
+	<!--  Sing up Activity labels -->
+	<string name="lblFirstName">Nome: </string>
+	<string name="lblLastName">Sobrenome: </string>
+	<string name="lblEmail">E-mail: </string>
+	<string name="lblCity">Cidade: </string>
+	<string name="lblCountry">País: </string>
+	<string name="lblPostCode">CEP: </string>
+	
+	<string name="lblSingUp">Registra-se</string>
+	
 </resources>

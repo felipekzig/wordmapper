@@ -17,8 +17,13 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);    
         
+        SettingsActions actions = new SettingsActions(this);
+
+        final Button btnSingUp = (Button) findViewById(R.id.btnSingUp);
+        btnSingUp.setOnClickListener(actions);
+        
         final Button btnCancel = (Button) findViewById(R.id.btnCancelSettings);
-        btnCancel.setOnClickListener(new SettingsActions(this));
+        btnCancel.setOnClickListener(actions);
     }
 
     @Override

@@ -1,6 +1,7 @@
 
 package br.com.wordmapper.service;
 
+import br.com.wordmapper.service.container.RequestContainer;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
