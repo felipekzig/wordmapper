@@ -19,6 +19,7 @@
     		android:layout_alignBaseline="@+id/cmbDefaultDict" 
     		android:layout_alignBottom="@+id/cmbDefaultDict" 
     		android:layout_marginBottom="15dp"
+    		android:layout_marginRight="15dp"
     		android:layout_alignParentLeft="true">
     	</TextView>
     
@@ -28,12 +29,11 @@
         	android:layout_height="wrap_content"   
         	android:layout_alignParentTop="true" 
         	android:layout_toRightOf="@+id/lblDefaultDict" 
-        	android:layout_alignParentRight="true"
-        	android:layout_marginLeft="15dp">
+        	android:layout_alignParentRight="true">
         </Spinner>
        
         <Button 
-        	android:id="@+id/btnRegister" 
+        	android:id="@+id/btnSingUp" 
         	android:text="@string/lblRegisterAction" 
         	android:layout_width="match_parent" 
         	android:layout_height="wrap_content" 
@@ -46,7 +46,7 @@
         	android:id="@+id/linearLayout1" 
         	android:layout_height="wrap_content" 
         	android:layout_width="wrap_content" 
-        	android:layout_below="@+id/btnRegister" 
+        	android:layout_below="@+id/btnSingUp" 
         	android:layout_alignParentLeft="true" 
         	android:layout_alignParentRight="true">
             

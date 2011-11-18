@@ -1,6 +1,7 @@
 
 package br.com.wordmapper.utils;
 
+import br.com.wordmapper.service.container.DefinitionContainer;
 import com.aonaware.services.webservices.Definition;
 import com.aonaware.services.webservices.WordDefinition;
 import com.aonaware.services.webservices.DictService;

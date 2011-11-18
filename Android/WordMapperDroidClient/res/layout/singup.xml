@@ -1,8 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_height="wrap_content" android:layout_width="wrap_content" android:gravity="center">
-    <Button android:layout_width="30dp" android:text="Test" android:layout_height="30dp" android:id="@+id/btnTeste"></Button>
-    
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<ScrollView 
+		android:id="@+id/scrollView"
+		android:layout_width="fill_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="0.25">
+	
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:layout_gravity="top">
+		
+			<!-- First Name -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblFirstName" 
+			    	android:text="@string/lblFirstName"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtFirstName"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtFirstName"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>
+		
+			<!-- Last Name -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblLastName" 
+			    	android:text="@string/lblLastName"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtLastName"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtLastName"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>
+		
+			<!-- Email -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblEmail" 
+			    	android:text="@string/lblEmail"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtEmail"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtEmail"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>
+			
+			<!-- City -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblCity" 
+			    	android:text="@string/lblCity"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtCity"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtCity"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>	
+		
+			<!-- Country -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblCountry" 
+			    	android:text="@string/lblCountry"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtCountry"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtCountry"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>
+		
+			<!-- Post Code -->
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView 
+			    	android:id="@+id/lblPostCode" 
+			    	android:text="@string/lblPostCode"
+			    	android:layout_width="match_parent" 
+			    	android:layout_height="wrap_content" 
+			    	android:textAppearance="?android:attr/textAppearanceLarge" 
+			    	android:layout_alignBaseline="@+id/txtPostCode"
+			    	android:layout_marginRight="15dp"
+			    	android:layout_weight="0.7">
+			    </TextView>
+			    
+			    <EditText 
+			    	android:id="@+id/txtPostCode"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:layout_weight="0.3">
+			    </EditText>
+				
+			</LinearLayout>			
+	
+		</LinearLayout>		
+		
+	</ScrollView>
+
+	<!-- Buttons -->
+	<LinearLayout
+		android:id="@+id/linearLayout" 
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:layout_marginTop="5dp">
+		
+		<Button
+			android:id="@+id/btnSingUp"
+			android:text="@string/lblSingUp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+		</Button>
+
+		<Button
+			android:id="@+id/btnCancel"
+			android:text="@string/lblCancelAction"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+		</Button>
+					
+	</LinearLayout>	
+
 </LinearLayout>
