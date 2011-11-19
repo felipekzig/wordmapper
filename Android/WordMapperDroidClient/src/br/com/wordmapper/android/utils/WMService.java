@@ -25,6 +25,8 @@ public class WMService {
 	public static final int DEFINE_OPERATION = 0;
 	public static final int SINGUP_OPERATION = 1;
 	
+	public String url;
+	
 	public WMService(){	}
 		
 	public void setTpOperation(Integer tpOperation){
@@ -44,7 +46,7 @@ public class WMService {
 	public void requestServer(String json) throws Exception{
 		
 		String urlWS = this.urlWMService + this.intIdTpOperation.toString() + "/" + URLEncoder.encode(json);
-		
+		url = urlWS;
 		try {
 			
 			HttpGet httpget = new HttpGet(urlWS);
@@ -54,7 +56,7 @@ public class WMService {
 				InputStream instream = response.getEntity().getContent();
 				this.responseJson = toString(instream);  
 				
-				this.responseObject = this.parseJSON(responseJson);
+				//this.responseObject = this.parseJSON(responseJson);
 				
 				instream.close();
 			}
