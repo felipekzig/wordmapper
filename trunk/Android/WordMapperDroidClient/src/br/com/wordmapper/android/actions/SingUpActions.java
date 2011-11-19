@@ -16,15 +16,11 @@ public class SingUpActions implements OnClickListener {
 	
 	private Activity singUpActivity;
 	
-	private View callerView;
-
 	public SingUpActions(Activity activity){
 		this.singUpActivity = activity;
 	}
 	
 	public void onClick(View v) {
-		
-		this.callerView = v;
 		
 		switch(v.getId()){
 		

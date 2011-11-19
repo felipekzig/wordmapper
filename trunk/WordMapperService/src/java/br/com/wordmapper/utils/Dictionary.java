@@ -24,6 +24,8 @@ public class Dictionary {
     public Dictionary(){
         this.service = new DictService().getDictServiceSoap12();
         
+    
+        
         this._strIdMainDict = "";
     }
     
