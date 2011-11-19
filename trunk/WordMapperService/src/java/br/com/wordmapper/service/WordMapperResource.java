@@ -1,7 +1,8 @@
 
 package br.com.wordmapper.service;
 
-import br.com.wordmapper.service.container.RequestContainer;
+import br.com.wordmapper.service.container.DefineContainer;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -9,83 +10,72 @@ import javax.ws.rs.Produces;
 
 import com.google.gson.Gson;
 import br.com.wordmapper.utils.Dictionary;
+import br.com.wordmapper.utils.UsersSingUp;
+import java.net.URLDecoder;
 
 
 /**
  * REST Web Service
  *
  * @author Felipe
- * http://localhost:8080/WordMapperService/resources/WordMapper/%7B%22Word%22:%22need%22,%22IdTpOperation%22:1,%22IdMainDict%22:%22wn%22%7D
+ * http://localhost:8080/WordMapperService/resources/WordMapper/1/%7B%22Word%22:%22need%22,%22IdTpOperation%22:1,%22IdMainDict%22:%22wn%22%7D
  */
 @Path("WordMapper")
 public class WordMapperResource {
     
-    private RequestContainer requestJson;
-    private RequestContainer responseJSON;
+    private DefineContainer requestJson;
+    private DefineContainer responseJSON;
     
     private Dictionary Dict;
+    
+    private static final int DEFINE_OPERATION = 0;
+    private static final int SINGUP_OPERATION = 1;
 
     @GET
-    @Path( "{json}" )
+    @Path( "{IdOperation}/{json}" )
     @Produces("application/json")
-    public String getJson(@PathParam( "json" ) String json) {
-                    
-        this.responseJSON = new RequestContainer();
-   
-        try{
-            this.requestJson = new Gson().fromJson(json, RequestContainer.class);
-
-            this._defineOperation();           
-            this._executeOperation();
-            
-        } catch(Exception e){
-            this.responseJSON.setError(e.getCause().toString() + "\n Message: " + e.getMessage());
-            return e.getMessage();
+    public String getJson(@PathParam( "IdOperation" ) int idOperation, @PathParam( "json" ) String json) {
+        
+        switch(idOperation){
+            case DEFINE_OPERATION:
+                return this._defineOperation(URLDecoder.decode(json));
+        
+            case SINGUP_OPERATION:
+                return this._singUpOperation(URLDecoder.decode(json));
         }
         
-        return this.getResponseJson();
+         return this.getErrorJson();
     }
     
-    private Boolean _defineOperation(){
+    private String _defineOperation(String json){
         try{
             this.Dict = new Dictionary();
-
-            this.Dict.setWord(this.requestJson.getWord());
-            if (this.requestJson.getIdTpOperation()==this.requestJson.getTpOperationDefine() && this.requestJson.getIdMainDict()!=null) 
-                this.Dict.setIdMainDict(this.requestJson.getIdMainDict());
             
-            return true;
+            this.requestJson = new Gson().fromJson(json, DefineContainer.class);
+            this.responseJSON = new DefineContainer();
+            
+            this.Dict.setWord(requestJson.getWord());
+            
+            this.responseJSON.setDefinitions(this.Dict.getDefinitions());
+            
+            return new Gson().toJson(this.responseJSON, DefineContainer.class);
+            
         } catch(Exception e) {
-            this.responseJSON.setError(e.getCause().toString() + "\n Message: " + e.getMessage());
-            return false;
+            return this.getErrorJson();
         }
     }
     
-    private Boolean _executeOperation(){
-        try {
-            if (this.requestJson.getIdTpOperation()==this.requestJson.getIdTpOperation()){
-                this._defineWord();
-            } else {
-                this._mappingWord();
-            }
-        } catch(Exception e) {
-            this.responseJSON.setError(e.getCause().toString() + "\n Message: " + e.getMessage());
-            return false;
+    private String _singUpOperation(String json){
+        UsersSingUp user = new UsersSingUp(json);
+        
+        if (!user.execute()){
+            return this.getErrorJson();
         }
-        
-        return true;
+        return user.getResponse();
     }
-    
-    private void _defineWord(){
-        this.responseJSON.setDefinitions(this.Dict.getDefinitions());
-        this.responseJSON.setWord(this.requestJson.getWord());
-    }
-     
-    private void _mappingWord(){
-        
-    }           
-    public String getResponseJson(){
-        return new Gson().toJson(this.responseJSON, RequestContainer.class);
+      
+    public String getErrorJson(){
+        return "{\"Erro\":1}";
     }
 
 }

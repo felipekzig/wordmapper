@@ -31,4 +31,6 @@
 	
 	<string name="lblSingUp">Registra-se</string>
 	
+	<string name="msgSingUpFinished">Usuário cadastrado com sucesso</string>
+	
 </resources>

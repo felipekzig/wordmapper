@@ -65,7 +65,7 @@ public final class R {
         public static final int menu=0x7f050000;
     }
     public static final class string {
-        public static final int app_name=0x7f040014;
+        public static final int app_name=0x7f040015;
         public static final int lblApplyAction=0x7f04000a;
         public static final int lblCancelAction=0x7f04000b;
         public static final int lblCity=0x7f040010;
@@ -98,5 +98,6 @@ public final class R {
         public static final int lblRegisterAction=0x7f04000c;
         public static final int lblResetAction=0x7f040008;
         public static final int lblSingUp=0x7f040013;
+        public static final int msgSingUpFinished=0x7f040014;
     }
 }
