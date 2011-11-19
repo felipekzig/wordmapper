@@ -1,6 +1,5 @@
 package br.com.wordmapper.android.activities;
 
-import br.com.wordmapper.android.actions.SettingsActions;
 import br.com.wordmapper.android.actions.SingUpActions;
 import android.app.Activity;
 import android.os.Bundle;

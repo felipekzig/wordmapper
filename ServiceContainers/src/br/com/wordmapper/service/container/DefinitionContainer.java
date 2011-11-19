@@ -4,11 +4,13 @@
  */
 package br.com.wordmapper.service.container;
 
+import com.google.gson.Gson;
+
 /**
  *
  * @author Felipe
  */
-public class DefinitionContainer {
+public class DefinitionContainer implements ContainerItf {
     
     private String Definition;
     private String Dictionary;
@@ -59,4 +61,8 @@ public class DefinitionContainer {
         return strDefFormated;
     }
     
+    public String getJson(){
+        return new Gson().toJson(this, this.getClass());
+    }
+  
 }

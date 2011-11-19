@@ -40,17 +40,10 @@ public class DefineActions implements OnClickListener {
 		Log.i(AppSettings.TAG, ((Long)cmbDictionaries.getSelectedItemId()).toString());
 		
 		WMService service = new WMService();
-		
-		service.setWord(txtWord2Define.getText().toString());
+
 		service.setTpOperation(1);
-		service.setMainDict("wn");
 		
 		try {
-			service.requestServer();
-			
-			Log.i(AppSettings.TAG, service.getResponseJson());
-			
-			Log.i(AppSettings.TAG, service.getResponseJsonObject().getDefinitions().get(0).getDefinition());
 		
 			
 		} catch (Exception e) {

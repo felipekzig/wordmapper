@@ -5,43 +5,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 
-import br.com.wordmapper.android.interfaces.RequestObject;
+import br.com.wordmapper.service.container.RequestContainer;
 
 import com.google.gson.Gson;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 public class WMService {
-
-	private String strWord;
-	private String strIdMainDict;
+	
 	private Integer intIdTpOperation;
 	
 	private String responseJson;
-	private RequestObject responseObject;
+	private RequestContainer responseObject;
 	
 	public final String urlWMService = "http://10.0.2.2:8080/WordMapperService/resources/WordMapper/";
 	
-	public WMService(){	}
+	public static final int DEFINE_OPERATION = 0;
+	public static final int SINGUP_OPERATION = 1;
 	
-	public void setWord(String strWord){
-		this.strWord = strWord;
-	}
-	public String getWord(){
-		return this.strWord;
-	}
-
-	public void setMainDict(String mainDict){
-		this.strIdMainDict = mainDict;
-	}
-	public String getMainDict(){
-		return this.strIdMainDict;
-	}
-
+	public WMService(){	}
+		
 	public void setTpOperation(Integer tpOperation){
 		this.intIdTpOperation = tpOperation;
 	}
@@ -52,38 +37,32 @@ public class WMService {
 	public String getResponseJson(){
 		return this.responseJson;
 	}
-	public RequestObject getResponseJsonObject(){
+	public RequestContainer getResponseJsonObject(){
 		return responseObject;
 	}
 	
-	public void requestServer() throws Exception{
+	public void requestServer(String json) throws Exception{
+		
+		String urlWS = this.urlWMService + this.intIdTpOperation.toString() + "/" + URLEncoder.encode(json);
 		
 		try {
 			
-			this.responseJson = this.getWSJSONResponse();
-			
-			this.responseObject = this.parseJSON(responseJson);
-			
-		} catch(Exception e) {
+			HttpGet httpget = new HttpGet(urlWS);
+			HttpResponse response = new DefaultHttpClient().execute(httpget);  
+			 
+			if (response.getEntity() != null) {
+				InputStream instream = response.getEntity().getContent();
+				this.responseJson = toString(instream);  
+				
+				this.responseObject = this.parseJSON(responseJson);
+				
+				instream.close();
+			}
+		
+		} catch (Exception e){
 			throw e;
-		}
+		}	
 	
-	}
-	
-	private String buildJSON(){
-		String json = "";
-		
-		json = "{";
-		json = json + "\"Word\":\"" + this.strWord + "\",";
-		json = json + "\"IdTpOperation\":" + this.intIdTpOperation;
-		
-		if (this.strIdMainDict != ""){
-			json = json + ",";
-			json = json + "\"IdMainDict\":\"" + this.strIdMainDict + "\"";
-		}
-		json = json + "}";
-		
-		return json;
 	}
 
 	private String toString(InputStream is)	throws IOException{  
@@ -97,38 +76,9 @@ public class WMService {
 		return new String(baos.toByteArray());  
 	}  
 	
-	private String getWSJSONResponse() throws Exception{
-		String urlWS = this.urlWMService + URLEncoder.encode(this.buildJSON());
-		
-		this.strIdMainDict = urlWS;
-		
-		HttpClient httpclient = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet(urlWS);  
-		
-		try {  
-			HttpResponse response = httpclient.execute(httpget);  
-			 
-			HttpEntity entity = response.getEntity();  
-			 
-			if (entity != null) {
-				InputStream instream = entity.getContent();
-				String result = toString(instream);  
-				
-				instream.close();
-				
-				return result;
-			}
-		
-		} catch (Exception e){
-			throw e;
-		}	
-		
-		return null;
-	}
-	
-	private RequestObject parseJSON(String json) throws Exception{
+	private RequestContainer parseJSON(String json) throws Exception{
 		try {
-			return new Gson().fromJson(json, RequestObject.class);
+			return new Gson().fromJson(json, RequestContainer.class);
 		} catch (Exception e) {
 			throw e;
 		}
