@@ -10,15 +10,18 @@ import br.com.wordmapper.android.utils.AppSettings;
 import br.com.wordmapper.android.utils.WMService;
 import br.com.wordmapper.service.container.DefineContainer;
 import br.com.wordmapper.service.container.DefinitionContainer;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.LayoutInflater;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class DefineActions implements OnClickListener {
 	
@@ -74,13 +77,29 @@ public class DefineActions implements OnClickListener {
 			builder.setItems(ListItens.toArray(new CharSequence[ListItens.size()]), new DialogInterface.OnClickListener() {
 			    public void onClick(DialogInterface dialog, int item) {
 			        
-			    	Context mContext = getApplicationContext();
-			    	Dialog dialog = new Dialog(mContext);
+			    	Context mContext = defineActivity.getApplicationContext();
+			    	final Dialog definitionDialog = new Dialog(mContext);
 
-			    	dialog.setContentView(R.layout.custom_dialog);
-			    	dialog.setTitle("Custom Dialog");
+			    	definitionDialog.setContentView(R.layout.definition_dialog);
+			    	definitionDialog.setTitle(defineResponse.getDefinitions().get(item).getDictionary());
+			    	definitionDialog.show();
+			    	
+			    	final Button btnClose = (Button) definitionDialog.findViewById(R.id.btnCloseDefinition);
+			    	final TextView lblDefinition = (TextView) definitionDialog.findViewById(R.id.lblDefinition);
+			    	
+			    	lblDefinition.setText(defineResponse.getDefinitions().get(item).getDefinition());
+			    	
+			    	btnClose.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							definitionDialog.dismiss();
+							
+						}
+			    	});
 			    }
-			});	
+			});
+		} catch (Exception e){
+			Log.e(AppSettings.TAG, "Defining Word", e);
+		}
 	}
 	
 	private void resetFields(){

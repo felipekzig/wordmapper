@@ -21,45 +21,48 @@ public final class R {
         public static final int settings2=0x7f020007;
     }
     public static final class id {
-        public static final int Credits=0x7f06001f;
-        public static final int Define=0x7f06001c;
-        public static final int Donate=0x7f060020;
-        public static final int Home=0x7f06001b;
-        public static final int Mapper=0x7f06001d;
-        public static final int Settings=0x7f06001e;
-        public static final int btnApplySettings=0x7f06000b;
-        public static final int btnCancel=0x7f06001a;
-        public static final int btnCancelSettings=0x7f06000c;
+        public static final int Credits=0x7f060021;
+        public static final int Define=0x7f06001e;
+        public static final int Donate=0x7f060022;
+        public static final int Home=0x7f06001d;
+        public static final int Mapper=0x7f06001f;
+        public static final int Settings=0x7f060020;
+        public static final int btnApplySettings=0x7f06000d;
+        public static final int btnCancel=0x7f06001c;
+        public static final int btnCancelSettings=0x7f06000e;
+        public static final int btnCloseDefinition=0x7f060008;
         public static final int btnDefine=0x7f060005;
         public static final int btnReset=0x7f060006;
-        public static final int btnSingUp=0x7f060009;
-        public static final int cmbDefaultDict=0x7f060008;
+        public static final int btnSingUp=0x7f06000b;
+        public static final int cmbDefaultDict=0x7f06000a;
         public static final int cmbDictionaries=0x7f060003;
-        public static final int lblCity=0x7f060014;
-        public static final int lblCountry=0x7f060016;
-        public static final int lblDefaultDict=0x7f060007;
-        public static final int lblEmail=0x7f060012;
-        public static final int lblFirstName=0x7f06000e;
-        public static final int lblLastName=0x7f060010;
-        public static final int lblPostCode=0x7f060018;
+        public static final int lblCity=0x7f060016;
+        public static final int lblCountry=0x7f060018;
+        public static final int lblDefaultDict=0x7f060009;
+        public static final int lblDefinition=0x7f060007;
+        public static final int lblEmail=0x7f060014;
+        public static final int lblFirstName=0x7f060010;
+        public static final int lblLastName=0x7f060012;
+        public static final int lblPostCode=0x7f06001a;
         public static final int lblWord=0x7f060001;
         public static final int linearLayout=0x7f060004;
-        public static final int linearLayout1=0x7f06000a;
+        public static final int linearLayout1=0x7f06000c;
         public static final int relativeLayout1=0x7f060000;
-        public static final int scrollView=0x7f06000d;
-        public static final int txtCity=0x7f060015;
-        public static final int txtCountry=0x7f060017;
-        public static final int txtEmail=0x7f060013;
-        public static final int txtFirstName=0x7f06000f;
-        public static final int txtLastName=0x7f060011;
-        public static final int txtPostCode=0x7f060019;
+        public static final int scrollView=0x7f06000f;
+        public static final int txtCity=0x7f060017;
+        public static final int txtCountry=0x7f060019;
+        public static final int txtEmail=0x7f060015;
+        public static final int txtFirstName=0x7f060011;
+        public static final int txtLastName=0x7f060013;
+        public static final int txtPostCode=0x7f06001b;
         public static final int txtWord2Define=0x7f060002;
     }
     public static final class layout {
         public static final int define=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int setting=0x7f030002;
-        public static final int singup=0x7f030003;
+        public static final int definition_dialog=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int setting=0x7f030003;
+        public static final int singup=0x7f030004;
     }
     public static final class menu {
         public static final int menu=0x7f050000;
