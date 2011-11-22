@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
@@ -8,8 +8,11 @@
 	<ScrollView 
 		android:id="@+id/scrollView"
 		android:layout_width="fill_parent"
-		android:layout_height="match_parent"
-		android:layout_weight="0.25">
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:layout_above="@+id/singUpButtons">
 	
 		<LinearLayout
 			android:orientation="vertical"
@@ -18,160 +21,180 @@
 			android:layout_gravity="top">
 		
 			<!-- First Name -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblFirstName" 
 			    	android:text="@string/lblFirstName"
-			    	android:layout_width="match_parent" 
+			    	android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtFirstName"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
-			    <EditText 
+			    <EditText
 			    	android:id="@+id/txtFirstName"
 			    	android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblFirstName"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true"
+			    	android:minWidth="10dp">
 			    </EditText>
-				
-			</LinearLayout>
+			    
+			</RelativeLayout>			
 		
 			<!-- Last Name -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblLastName" 
 			    	android:text="@string/lblLastName"
-			    	android:layout_width="match_parent" 
+			    	android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtLastName"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"			    	
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
 			    <EditText 
 			    	android:id="@+id/txtLastName"
 			    	android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblLastName"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true">
 			    </EditText>
 				
-			</LinearLayout>
+			</RelativeLayout>
 		
 			<!-- Email -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout 
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblEmail" 
 			    	android:text="@string/lblEmail"
-			    	android:layout_width="match_parent" 
+				    android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtEmail"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"			    	
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
 			    <EditText 
 			    	android:id="@+id/txtEmail"
-			    	android:layout_width="match_parent"
+		    		android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblEmail"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true"
+			    	android:minWidth="120dp">
 			    </EditText>
 				
-			</LinearLayout>
+			</RelativeLayout>
 			
 			<!-- City -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout 
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblCity" 
 			    	android:text="@string/lblCity"
-			    	android:layout_width="match_parent" 
+				    android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtCity"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"			    	
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
 			    <EditText 
 			    	android:id="@+id/txtCity"
-			    	android:layout_width="match_parent"
+		    		android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblCity"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true">
 			    </EditText>
 				
-			</LinearLayout>	
+			</RelativeLayout>			
 		
 			<!-- Country -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout 
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblCountry" 
 			    	android:text="@string/lblCountry"
-			    	android:layout_width="match_parent" 
+				    android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtCountry"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"			    	
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
 			    <EditText 
 			    	android:id="@+id/txtCountry"
-			    	android:layout_width="match_parent"
+		    		android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblCountry"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true">
 			    </EditText>
 				
-			</LinearLayout>
+			</RelativeLayout>	
 		
 			<!-- Post Code -->
-			<LinearLayout 
-				android:orientation="horizontal"
+			<RelativeLayout 
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
 				<TextView 
 			    	android:id="@+id/lblPostCode" 
 			    	android:text="@string/lblPostCode"
-			    	android:layout_width="match_parent" 
+				    android:layout_width="wrap_content" 
 			    	android:layout_height="wrap_content" 
 			    	android:textAppearance="?android:attr/textAppearanceLarge" 
 			    	android:layout_alignBaseline="@+id/txtPostCode"
+			    	android:layout_alignParentLeft="true"
+			    	android:layout_alignParentTop="true"			    	
 			    	android:layout_marginRight="15dp"
-			    	android:layout_weight="0.7">
+			    	android:minWidth="120dp">
 			    </TextView>
 			    
 			    <EditText 
 			    	android:id="@+id/txtPostCode"
-			    	android:layout_width="match_parent"
+		    		android:layout_width="match_parent"
 			    	android:layout_height="wrap_content"
-			    	android:layout_weight="0.3">
+			    	android:layout_toRightOf="@+id/lblPostCode"
+			    	android:layout_alignParentRight="true"
+			    	android:layout_alignParentTop="true">
 			    </EditText>
 				
-			</LinearLayout>			
+			</RelativeLayout>			
 	
 		</LinearLayout>		
 		
@@ -179,12 +202,14 @@
 
 	<!-- Buttons -->
 	<LinearLayout
-		android:id="@+id/linearLayout" 
+		android:id="@+id/singUpButtons" 
 		android:orientation="horizontal"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_weight="1"
-		android:layout_marginTop="5dp">
+		android:layout_height="50dp"
+		android:layout_marginTop="5dp"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true">
 		
 		<Button
 			android:id="@+id/btnSingUp"
@@ -204,4 +229,4 @@
 					
 	</LinearLayout>	
 
-</LinearLayout>
+</RelativeLayout>
