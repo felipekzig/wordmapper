@@ -10,16 +10,19 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class DefineActivity extends Activity {
+	
 	   @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.define);
 	        
+	        DefineActions actions = new DefineActions(this);
+	        
 	        final Button btnDefine = (Button) findViewById(R.id.btnDefine);
-	        btnDefine.setOnClickListener(new DefineActions(this));
+	        btnDefine.setOnClickListener(actions);
 	        
 	        final Button btnReset = (Button) findViewById(R.id.btnReset);
-	        btnReset.setOnClickListener(new DefineActions(this));	        
+	        btnReset.setOnClickListener(actions);	        
 	    }
 
 	    @Override

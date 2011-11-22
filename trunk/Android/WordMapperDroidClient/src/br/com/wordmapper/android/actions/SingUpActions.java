@@ -1,8 +1,8 @@
 package br.com.wordmapper.android.actions;
 
 import br.com.wordmapper.android.activities.R;
+import br.com.wordmapper.android.service.SingUpService;
 import br.com.wordmapper.android.utils.AppSettings;
-import br.com.wordmapper.android.utils.WMService;
 import br.com.wordmapper.service.container.UserContainer;
 import android.app.Activity;
 import android.util.Log;
@@ -54,12 +54,11 @@ public class SingUpActions implements OnClickListener {
 		user.setZipCode(txtZipCode.getText().toString());
 		user.setSqlOperation(UserContainer.INSERT);
 		
-		WMService service = new WMService();
-		service.setTpOperation(WMService.SINGUP_OPERATION);
+		SingUpService service = new SingUpService(user);
 		
 		try {
 			
-			service.requestServer(user.getJson());
+			service.execute();
 			
 			Toast msg = Toast.makeText(singUpActivity, singUpActivity.getResources().getString(R.string.msgSingUpFinished), Toast.LENGTH_LONG);
 			msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);

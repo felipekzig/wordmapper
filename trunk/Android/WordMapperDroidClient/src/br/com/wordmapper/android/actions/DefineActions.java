@@ -3,24 +3,22 @@ package br.com.wordmapper.android.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import br.com.wordmapper.android.activities.R;
+import br.com.wordmapper.android.service.DefineService;
+
 import br.com.wordmapper.android.utils.AppSettings;
-import br.com.wordmapper.android.utils.WMService;
-import br.com.wordmapper.service.container.DefineContainer;
 import br.com.wordmapper.service.container.DefinitionContainer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class DefineActions implements OnClickListener {
@@ -50,24 +48,21 @@ public class DefineActions implements OnClickListener {
 		}
 	}
 	
+	private String getDictionaryId(Integer position){
+		return "wn";
+	}
+	
 	private void defineWord(){
 		
 		final EditText txtWord2Define = (EditText) this.defineActivity.findViewById(R.id.txtWord2Define);
-		//final Spinner cmbDictionaries = (Spinner) this.defineActivity.findViewById(R.id.cmbDictionaries);
-		
-		DefineContainer define = new DefineContainer();
-		define.setIdMainDict("wn");
-		define.setWord(txtWord2Define.getText().toString());
+		final Spinner cmbDictionaries = (Spinner) this.defineActivity.findViewById(R.id.cmbDictionaries);
 	
 		try {
-			WMService service = new WMService();
-			service.setTpOperation(WMService.DEFINE_OPERATION);			
-			
-			service.requestServer(define.getJson());
-			
-			final DefineContainer defineResponse = new Gson().fromJson(service.getResponseJson(), DefineContainer.class);		
+			final DefineService service = new DefineService(txtWord2Define.getText().toString(), this.getDictionaryId(cmbDictionaries.getSelectedItemPosition()));
+			service.execute();
+				
 			ListItens.removeAll(ListItens);
-			for(DefinitionContainer definition: defineResponse.getDefinitions()){
+			for(DefinitionContainer definition: service.getResponseObject().getDefinitions()){
 				ListItens.add(definition.getDefinition().trim().substring(0, 20));
 			}
 			
@@ -77,17 +72,15 @@ public class DefineActions implements OnClickListener {
 			builder.setItems(ListItens.toArray(new CharSequence[ListItens.size()]), new DialogInterface.OnClickListener() {
 			    public void onClick(DialogInterface dialog, int item) {
 			        
-			    	Context mContext = defineActivity.getApplicationContext();
-			    	final Dialog definitionDialog = new Dialog(mContext);
+			    	final Dialog definitionDialog = new Dialog(callerView.getContext());
 
 			    	definitionDialog.setContentView(R.layout.definition_dialog);
-			    	definitionDialog.setTitle(defineResponse.getDefinitions().get(item).getDictionary());
-			    	definitionDialog.show();
-			    	
+			    	definitionDialog.setTitle(service.getResponseObject().getDefinitions().get(item).getDictionary());
+			    
 			    	final Button btnClose = (Button) definitionDialog.findViewById(R.id.btnCloseDefinition);
 			    	final TextView lblDefinition = (TextView) definitionDialog.findViewById(R.id.lblDefinition);
 			    	
-			    	lblDefinition.setText(defineResponse.getDefinitions().get(item).getDefinition());
+			    	lblDefinition.setText(service.getResponseObject().getDefinitions().get(item).getDefinition());
 			    	
 			    	btnClose.setOnClickListener(new OnClickListener() {
 						public void onClick(View v) {
@@ -95,8 +88,14 @@ public class DefineActions implements OnClickListener {
 							
 						}
 			    	});
+			    	
+			    	dialog.dismiss();
+			    	definitionDialog.show();
 			    }
 			});
+			
+			builder.show();
+
 		} catch (Exception e){
 			Log.e(AppSettings.TAG, "Defining Word", e);
 		}

@@ -16,9 +16,9 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".DefineActivity"></activity>
-        <activity android:name=".SettingsActivity"></activity>
-		<activity android:name=".SingUpActivity"></activity>
+        <activity android:name="DefineActivity"></activity>
+        <activity android:name="SettingsActivity"></activity>
+		<activity android:name="SingUpActivity"></activity>
 		
     </application>
 </manifest>

@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
   android:layout_width="match_parent"
-  android:layout_height="match_parent" 
-  android:weightSum="1">
-    <TextView 
-    	android:id="@+id/lblDefinition"
-    	android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:layout_weight="0.2" 
-    	android:textAppearance="?android:attr/textAppearanceLarge">
-    </TextView>
+  android:layout_height="match_parent">
+  	
+  	<ScrollView
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+	    android:layout_alignParentRight="true"
+    	android:layout_alignParentTop="true"
+    	android:layout_above="@+id/btnCloseDefinition">
+		
+		<TextView 
+    		android:id="@+id/lblDefinition"
+	    	android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:textAppearance="?android:attr/textAppearanceLarge">
+	    </TextView>
+	      	
+  	</ScrollView>
+    
     
     <Button 
     	android:id="@+id/btnCloseDefinition"
     	android:text="OK" 
     	android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:layout_weight="0.8">
+    	android:layout_height="50dp"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentRight="true"
+    	android:layout_alignParentBottom="true">
     </Button>
     
-</LinearLayout>
+</RelativeLayout>

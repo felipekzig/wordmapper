@@ -14,6 +14,8 @@
 	<string name="lblDefineWord">Word: </string>
 	<string name="lblDefineAction">Define</string>
 	<string name="lblResetAction">Reset</string>
+	
+	<string name="lblChooseDefinition">Choose the definition</string>
 
 	<!-- Settings Activity labels -->
 	<string name="lblDefaultDictionary">Default Dictionary: </string>
@@ -30,5 +32,7 @@
 	<string name="lblPostCode">ZIP Code: </string>
 	
 	<string name="lblSingUp">Sing Up</string>
+	
+	<string name="msgSingUpFinished">User registered successfully</string>
 	
 </resources>
