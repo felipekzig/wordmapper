@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -49,7 +50,9 @@ public class DefineActions implements OnClickListener {
 	}
 	
 	private String getDictionaryId(Integer position){
-		return "wn";
+		ArrayAdapter<CharSequence> dictIds = ArrayAdapter.createFromResource(defineActivity, R.array.dictsIds, android.R.layout.simple_spinner_dropdown_item);
+		return defineActivity.getResources().getStringArray(R.array.dictsIds)[position].toString();
+		//return dictIds.getItem(position).toString();
 	}
 	
 	private void defineWord(){
@@ -58,6 +61,7 @@ public class DefineActions implements OnClickListener {
 		final Spinner cmbDictionaries = (Spinner) this.defineActivity.findViewById(R.id.cmbDictionaries);
 	
 		try {
+			Log.d(AppSettings.TAG, this.getDictionaryId(cmbDictionaries.getSelectedItemPosition()));
 			final DefineService service = new DefineService(txtWord2Define.getText().toString(), this.getDictionaryId(cmbDictionaries.getSelectedItemPosition()));
 			service.execute();
 				
