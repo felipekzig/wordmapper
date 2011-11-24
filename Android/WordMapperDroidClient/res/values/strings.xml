@@ -2,4 +2,14 @@
 <resources>
     <string name="app_name">WordMapper</string>
     
+    <string-array name="dictItens">
+    	<item>The Collaborative International Dictionary of English v.0.4</item>
+    	<item>WordNet (r) 2.0</item>
+    </string-array>
+
+    <string-array name="dictsIds">
+    	<item>gcide</item>
+    	<item>wn</item>
+    </string-array>
+    
 </resources>

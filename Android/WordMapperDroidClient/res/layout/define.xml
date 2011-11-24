@@ -30,7 +30,7 @@
     <Spinner 
     	android:id="@+id/cmbDictionaries"
     	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"   
+    	android:layout_height="50dp"   
     	android:layout_below="@+id/txtWord2Define" 
     	android:layout_alignLeft="@+id/lblWord" 
     	android:layout_alignRight="@+id/txtWord2Define">
