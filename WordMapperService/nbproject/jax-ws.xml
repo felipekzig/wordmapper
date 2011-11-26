@@ -2,42 +2,14 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
     <service name="DictService">
-      <implementation-class>com.dict.service.DictService</implementation-class>
-      <wsdl-url>http://services.aonaware.com/DictService/DictService.asmx?WSDL</wsdl-url>
-      <local-wsdl-file>services.aonaware.com/DictService/DictService.asmx.wsdl</local-wsdl-file>
-      <service-name>DictService</service-name>
-      <port-name>DictServiceSoap</port-name>
-      <package-name>com.aonaware.services.webservices</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>true</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
-    <service name="DictService_1">
-      <implementation-class>com.dict.service.DictService</implementation-class>
+      <implementation-class>com.aonaware.services.DictService</implementation-class>
       <wsdl-url>http://services.aonaware.com/DictService/DictService.asmx?WSDL</wsdl-url>
       <local-wsdl-file>services.aonaware.com/DictService/DictService.asmx.wsdl</local-wsdl-file>
       <service-name>DictService</service-name>
       <port-name>DictServiceSoap12</port-name>
       <package-name>com.aonaware.services.webservices</package-name>
       <catalog-file>catalog.xml</catalog-file>
-      <use-provider>true</use-provider>
+      <use-provider>false</use-provider>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>
@@ -58,39 +30,6 @@
       </wsimport-options>
     </service>
   </services>
-  <clients>
-    <client name="DictService.asmx">
-      <wsdl-url>file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl</wsdl-url>
-      <local-wsdl-file>DictService.asmx.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">dict.service_client</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>dict.service_client</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-  </clients>
+  <clients/>
   <jsr109>true</jsr109>
 </jax-ws>

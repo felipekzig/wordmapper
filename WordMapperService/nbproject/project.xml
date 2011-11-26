@@ -3,12 +3,11 @@
     <type>org.netbeans.modules.web.project</type>
     <configuration>
         <buildExtensions xmlns="http://www.netbeans.org/ns/ant-build-extender/1">
-            <extension file="rest-build.xml" id="rest.4">
-                <dependency dependsOn="generate-rest-config" target="-pre-pre-compile"/>
-            </extension>
             <extension file="jaxws-build.xml" id="jaxws">
                 <dependency dependsOn="wsimport-service-generate" target="-pre-pre-compile"/>
-                <dependency dependsOn="wsimport-client-generate" target="-pre-pre-compile"/>
+            </extension>
+            <extension file="rest-build.xml" id="rest.4">
+                <dependency dependsOn="generate-rest-config" target="-pre-pre-compile"/>
             </extension>
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
@@ -20,7 +19,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.gson-1.7.1.jar}</file>
+                    <file>${file.reference.ServiceContainers.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -28,20 +27,16 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${libs.ServiceContainers.classpath}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.ServiceContainers.jar}</file>
+                    <file>${file.reference.gson-1.7.1.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
-                <root id="src.dir"/>
+                <root id="src.dir" name="Source Packages"/>
             </source-roots>
             <test-roots>
-                <root id="test.src.dir"/>
+                <root id="test.src.dir" name="Test Packages"/>
             </test-roots>
         </data>
         <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">

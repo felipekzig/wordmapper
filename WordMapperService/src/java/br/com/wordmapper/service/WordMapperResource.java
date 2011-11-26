@@ -44,24 +44,25 @@ public class WordMapperResource {
                 return this._singUpOperation(URLDecoder.decode(json));
         }
         
-         return this.getErrorJson();
+         return this.getErrorJson("Fudeo");
     }
     
     private String _defineOperation(String json){
         try{
             this.Dict = new Dictionary();
-            
+           
             this.requestJson = new Gson().fromJson(json, DefineContainer.class);
             this.responseJSON = new DefineContainer();
             
             this.Dict.setWord(requestJson.getWord());
+            this.Dict.setIdMainDict(requestJson.getIdMainDict());
             
             this.responseJSON.setDefinitions(this.Dict.getDefinitions());
             
             return new Gson().toJson(this.responseJSON, DefineContainer.class);
             
         } catch(Exception e) {
-            return this.getErrorJson();
+            return this.getErrorJson(e.getMessage());
         }
     }
     
@@ -69,13 +70,13 @@ public class WordMapperResource {
         UsersSingUp user = new UsersSingUp(json);
         
         if (!user.execute()){
-            return this.getErrorJson();
+            return this.getErrorJson("Erro ao cadastrar usuário");
         }
         return user.getResponse();
     }
       
-    public String getErrorJson(){
-        return "{\"Erro\":1}";
+    public String getErrorJson(String msg){
+        return "{\"Erro\":\"" + msg + "\"}";
     }
 
 }
