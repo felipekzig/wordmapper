@@ -19,7 +19,6 @@
             -->
     <target name="wsimport-init" depends="init">
         <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
-        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
         <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
         <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
             <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}"/>
@@ -27,22 +26,6 @@
         <condition property="conf-dir" value="${conf.dir}/" else="">
             <isset property="conf.dir"/>
         </condition>
-    </target>
-    <target name="wsimport-client-DictService.asmx" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/DictService.asmx"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DictService.asmx" destdir="${build.generated.dir}/jax-wsCache/DictService.asmx" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DictService.asmx/wsdl/DictService.asmx.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl" xnocompile="true" xendorsed="true" package="dict.service_client">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/DictService.asmx/wsdl/DictService.asmx.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/DictService.asmx"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/DictService.asmx">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-DictService.asmx" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/dict/service_client"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/DictService.asmx"/>
     </target>
     <target name="wsimport-service-DictService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/DictService"/>
@@ -63,25 +46,5 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com/aonaware/services/webservices"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/DictService"/>
     </target>
-    <target name="wsimport-service-DictService_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/DictService_1"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/DictService_1" destdir="${build.generated.dir}/jax-wsCache/service/DictService_1" wsdl="${basedir}/${conf-dir}xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl" catalog="catalog.xml" extension="true" verbose="true" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/DictService_1/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/DictService_1"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/DictService_1">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/DictService_1">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/DictService_1/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-DictService_1" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/aonaware/services/webservices"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/DictService_1"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-DictService.asmx"/>
-    <target name="wsimport-service-generate" depends="wsimport-service-DictService, wsimport-service-DictService_1"/>
+    <target name="wsimport-service-generate" depends="wsimport-service-DictService"/>
 </project>

@@ -2,11 +2,12 @@
 package br.com.wordmapper.utils;
 
 import br.com.wordmapper.service.container.DefinitionContainer;
+
+import com.aonaware.services.webservices.DictService;
+import com.aonaware.services.webservices.DictServiceSoap;
 import com.aonaware.services.webservices.Definition;
 import com.aonaware.services.webservices.WordDefinition;
-import com.aonaware.services.webservices.DictService;
 
-import com.aonaware.services.webservices.DictServiceSoap;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,7 @@ public class Dictionary {
     
     public Dictionary(){
         this.service = new DictService().getDictServiceSoap12();
-        
-    
-        
+                
         this._strIdMainDict = "";
     }
     
@@ -44,10 +43,10 @@ public class Dictionary {
     }
     
     public List<DefinitionContainer> getDefinitions(){
-        List<DefinitionContainer> response = new ArrayList<DefinitionContainer>();
-        
-        WordDefinition definitions;     
+        List<DefinitionContainer> response = new ArrayList<DefinitionContainer>();     
       
+        WordDefinition definitions;
+        
         if (this.getIdMainDict().isEmpty()){
             definitions = this.service.define(this.getWord());
         } else {
