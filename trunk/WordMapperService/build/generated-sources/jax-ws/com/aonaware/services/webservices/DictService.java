@@ -19,7 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "DictService", targetNamespace = "http://services.aonaware.com/webservices/", wsdlLocation = "file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl")
+@WebServiceClient(name = "DictService", targetNamespace = "http://services.aonaware.com/webservices/", wsdlLocation = "http://services.aonaware.com/DictService/DictService.asmx?WSDL")
 public class DictService
     extends Service
 {
@@ -32,7 +32,7 @@ public class DictService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/Felipe/Java/Java%20Web%20Service/WordMapperService/src/conf/xml-resources/web-services/DictService/wsdl/services.aonaware.com/DictService/DictService.asmx.wsdl");
+            url = new URL("http://services.aonaware.com/DictService/DictService.asmx?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
