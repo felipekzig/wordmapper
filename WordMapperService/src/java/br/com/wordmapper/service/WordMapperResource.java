@@ -49,20 +49,23 @@ public class WordMapperResource {
     
     private String _defineOperation(String json){
         try{
+            
             this.Dict = new Dictionary();
-           
+            
             this.requestJson = new Gson().fromJson(json, DefineContainer.class);
+            
             this.responseJSON = new DefineContainer();
             
             this.Dict.setWord(requestJson.getWord());
-            this.Dict.setIdMainDict(requestJson.getIdMainDict());
+            if (requestJson.getIdMainDict()!=null)  this.Dict.setIdMainDict(requestJson.getIdMainDict());
             
             this.responseJSON.setDefinitions(this.Dict.getDefinitions());
             
             return new Gson().toJson(this.responseJSON, DefineContainer.class);
             
         } catch(Exception e) {
-            return this.getErrorJson(e.getMessage());
+            //return this.getErrorJson(e.getLocalizedMessage());
+            return this.getErrorJson("fudeo");
         }
     }
     
