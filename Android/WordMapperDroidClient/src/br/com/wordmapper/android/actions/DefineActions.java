@@ -3,12 +3,6 @@ package br.com.wordmapper.android.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.wordmapper.android.activities.R;
-import br.com.wordmapper.android.service.DefineService;
-
-import br.com.wordmapper.android.utils.AppSettings;
-import br.com.wordmapper.service.container.DefinitionContainer;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,11 +10,14 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import br.com.wordmapper.android.activities.R;
+import br.com.wordmapper.android.service.DefineService;
+import br.com.wordmapper.android.utils.AppSettings;
+import br.com.wordmapper.service.container.DefinitionContainer;
 
 public class DefineActions implements OnClickListener {
 	
@@ -50,9 +47,7 @@ public class DefineActions implements OnClickListener {
 	}
 	
 	private String getDictionaryId(Integer position){
-		ArrayAdapter<CharSequence> dictIds = ArrayAdapter.createFromResource(defineActivity, R.array.dictsIds, android.R.layout.simple_spinner_dropdown_item);
 		return defineActivity.getResources().getStringArray(R.array.dictsIds)[position].toString();
-		//return dictIds.getItem(position).toString();
 	}
 	
 	private void defineWord(){

@@ -1,14 +1,15 @@
 package br.com.wordmapper.android.activities;
 
-import br.com.wordmapper.android.actions.SettingsActions;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import br.com.wordmapper.android.actions.SettingsActions;
 
 public class SettingsActivity extends Activity {
     
@@ -21,9 +22,18 @@ public class SettingsActivity extends Activity {
 
         final Button btnSingUp = (Button) findViewById(R.id.btnSingUp);
         btnSingUp.setOnClickListener(actions);
+
+        final Button btnApplySettings = (Button) findViewById(R.id.btnApplySettings);
+        btnApplySettings.setOnClickListener(actions);        
         
         final Button btnCancel = (Button) findViewById(R.id.btnCancelSettings);
         btnCancel.setOnClickListener(actions);
+        
+        final Spinner cmbDefaultDict = (Spinner) findViewById(R.id.cmbDefaultDict);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dictItens, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        
+        cmbDefaultDict.setAdapter(adapter);	        
     }
 
     @Override

@@ -24,6 +24,8 @@ public class UsersSingUp {
     
     public String responseJson;
     
+    public String error;
+    
     private Connection conec;
        
     public UsersSingUp(String jsonUser){
@@ -33,9 +35,9 @@ public class UsersSingUp {
             this.user = new Gson().fromJson(jsonUser, UserContainer.class);
             
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            this.error = e.getMessage();
         } catch (SQLException e) {
-            e.printStackTrace();
+            this.error = e.getMessage();
         }
     }
     
@@ -74,6 +76,7 @@ public class UsersSingUp {
             stmt.close();
             
         } catch (SQLException e) {
+            this.error = e.getMessage();
             return false;
         }
         
@@ -100,6 +103,7 @@ public class UsersSingUp {
             stmt.close();
             
         } catch (SQLException e) {
+            this.error = e.getMessage();
             return false;
         }
         

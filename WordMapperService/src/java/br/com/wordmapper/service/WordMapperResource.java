@@ -73,7 +73,7 @@ public class WordMapperResource {
         UsersSingUp user = new UsersSingUp(json);
         
         if (!user.execute()){
-            return this.getErrorJson("Erro ao cadastrar usuário");
+            return this.getErrorJson(user.error);
         }
         return user.getResponse();
     }

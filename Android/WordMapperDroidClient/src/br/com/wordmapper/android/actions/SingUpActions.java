@@ -64,6 +64,8 @@ public class SingUpActions implements OnClickListener {
 			msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
 			msg.show();
 			
+			AppSettings.userLicense = user.getLicense();
+			
 			singUpActivity.finish();
 	
 			
