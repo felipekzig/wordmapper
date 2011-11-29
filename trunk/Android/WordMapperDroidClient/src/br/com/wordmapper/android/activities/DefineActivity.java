@@ -1,9 +1,11 @@
 package br.com.wordmapper.android.activities;
 
 import br.com.wordmapper.android.actions.DefineActions;
+import br.com.wordmapper.android.utils.AppSettings;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,9 +31,23 @@ public class DefineActivity extends Activity {
 	        final Spinner cmbDictionaries = (Spinner) findViewById(R.id.cmbDictionaries);
 	        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dictItens, android.R.layout.simple_spinner_dropdown_item);
 	        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	        
-	        cmbDictionaries.setAdapter(adapter);	        
+
+	        cmbDictionaries.setAdapter(adapter);
+	        cmbDictionaries.setSelection(getDictionaryPosition(AppSettings.idDefaultDict));
 	    }
+	   
+	   	private int getDictionaryPosition(String id){
+	   		String[] idDicts = getResources().getStringArray(R.array.dictsIds);
+	   		
+	   		for(int i=0;i<idDicts.length;i++){	   			
+	   			Log.d(AppSettings.TAG, idDicts[i]);
+	   		
+	   			if (id.equalsIgnoreCase(idDicts[i]))	return i;	
+
+	   		}
+	  
+	   		return 0;
+	   	}
 
 	    @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {

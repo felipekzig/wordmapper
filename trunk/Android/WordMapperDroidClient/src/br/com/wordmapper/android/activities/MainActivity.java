@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import br.com.wordmapper.android.utils.AppSettings;
 
 public class MainActivity extends Activity {
 	
@@ -14,6 +15,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);        
+        
+        AppSettings.loadSettings(this.getApplicationContext());
+ 
     }
 
     @Override

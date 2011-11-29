@@ -15,7 +15,7 @@ public abstract class WMService {
 	
 	private String responseJson;
 	
-	private final String urlWMService = "http://10.0.2.2:8080/WordMapperService/resources/WordMapper/";
+	private final String urlWMService = "http://192.168.2.44:8080/WordMapperService/resources/WordMapper/";
 	
 	protected static final int DEFINE_OPERATION = 0;
 	protected static final int SINGUP_OPERATION = 1;

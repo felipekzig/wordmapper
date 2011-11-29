@@ -1,5 +1,8 @@
 package br.com.wordmapper.android.service;
 
+import android.util.Log;
+
+import br.com.wordmapper.android.utils.AppSettings;
 import br.com.wordmapper.service.container.UserContainer;
 
 import com.google.gson.Gson;
@@ -13,7 +16,6 @@ public final class SingUpService extends WMService {
 		super.setTpOperation(WMService.SINGUP_OPERATION);
 		
 		requestObject = user;
-
 	}
 	
 	public UserContainer getResponseObject(){
@@ -28,9 +30,11 @@ public final class SingUpService extends WMService {
 		try {
 			super.requestServer(requestObject.getJson());
 			
+			Log.d(AppSettings.TAG, this.getResponseJson());
+			
 			this.parseJson();
 		} catch (Exception e) {
-			// E agora?
+			Log.e(AppSettings.TAG, "Fudeo", e);
 		}
 		
 	}

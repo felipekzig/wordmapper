@@ -1,13 +1,14 @@
 package br.com.wordmapper.android.actions;
 
-import br.com.wordmapper.android.activities.R;
-import br.com.wordmapper.android.activities.SingUpActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Spinner;
+import br.com.wordmapper.android.activities.R;
+import br.com.wordmapper.android.activities.SingUpActivity;
+import br.com.wordmapper.android.utils.AppSettings;
 
 public class SettingsActions implements OnClickListener {
 
@@ -39,9 +40,17 @@ public class SettingsActions implements OnClickListener {
 		
 	}
 
-
+	private String getDictionaryId(Integer position){
+		return settingsActivity.getResources().getStringArray(R.array.dictsIds)[position].toString();
+	}
+	
 	private void applySettings(){
+		final Spinner cmbDefaultDict = (Spinner) settingsActivity.findViewById(R.id.cmbDefaultDict);
+		AppSettings.idDefaultDict = getDictionaryId(cmbDefaultDict.getSelectedItemPosition());
 		
+		AppSettings.saveSettings(settingsActivity.getApplicationContext());
+		
+		settingsActivity.finish();
 	}
 	
 	private void showSingUpActivity(){
