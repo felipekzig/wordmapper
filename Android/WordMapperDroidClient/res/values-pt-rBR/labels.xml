@@ -15,7 +15,8 @@
 	<string name="lblDefineAction">Definir</string>
 	<string name="lblResetAction">Limpar</string>
 	
-	<string name="lblChooseDefinition">Escolha o Significado</string>
+	<string name="lblChooseDefinition">Escolha o significado</string>
+	<string name="lblDefineAnotherWord">Definir outra palabra</string>
 
 	<!-- Settings Activity labels -->
 	<string name="lblDefaultDictionary">Dicionário Padrão: </string>

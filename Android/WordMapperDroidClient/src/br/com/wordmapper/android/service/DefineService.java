@@ -25,13 +25,13 @@ public final class DefineService extends WMService {
 		this.responseObject = new Gson().fromJson(this.getResponseJson(), DefineContainer.class);
 	}
 	
-	public void execute(){
+	public void execute() throws Exception{
 		try {
 			super.requestServer(requestObject.getJson());
 			
 			this.parseJson();
 		} catch (Exception e) {
-			// E agora?
+			throw e;
 		}
 		
 	}

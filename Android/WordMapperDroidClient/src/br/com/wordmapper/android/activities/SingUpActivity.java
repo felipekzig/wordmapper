@@ -8,7 +8,7 @@ import android.widget.Button;
 public class SingUpActivity extends Activity {
 	
 	   @Override
-	    public void onCreate(Bundle savedInstanceState) {
+	   public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.singup);
 	        
@@ -19,6 +19,6 @@ public class SingUpActivity extends Activity {
 	        
 	        final Button btnCancel = (Button) findViewById(R.id.btnCancel);
 	        btnCancel.setOnClickListener(actions);	        
-	    }
+	   }
 	      
 }

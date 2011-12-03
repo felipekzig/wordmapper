@@ -17,6 +17,7 @@
         </activity>
         
         <activity android:name="DefineActivity"></activity>
+        <activity android:name="DefinitionsActivity"></activity>
         <activity android:name="SettingsActivity"></activity>
 		<activity android:name="SingUpActivity"></activity>
 		
