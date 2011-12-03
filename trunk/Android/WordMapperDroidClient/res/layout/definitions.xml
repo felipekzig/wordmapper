@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/relativeLayout1"
+	android:layout_height="fill_parent"  
+	android:layout_width="fill_parent" android:gravity="center_vertical">
+    
+    <TextView 
+    	android:id="@+id/lblWordDefined"
+    	android:text="TextView" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"  
+    	android:textAppearance="?android:attr/textAppearanceLarge"
+   		android:layout_marginTop="16dp" 
+    	android:layout_alignParentTop="true" 
+    	android:layout_alignParentLeft="true" 
+    	android:layout_alignBaseline="@+id/btnPlaySound"
+    	android:layout_toLeftOf="@+id/btnPlaySound">
+    </TextView>
+    
+    <ImageButton 
+    	android:id="@+id/btnPlaySound" 
+    	android:src="@drawable/sound_high"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"  
+    	android:layout_alignParentTop="true" 
+    	android:layout_alignParentRight="true">
+    </ImageButton>
+    
+    <ListView 
+    	android:id="@+id/lstDefinitions"
+    	android:layout_width="match_parent" 
+    	android:layout_height="match_parent"
+    	android:layout_alignParentLeft="true"  
+    	android:layout_below="@+id/btnPlaySound"
+    	android:layout_above="@+id/btnDefineOtherWord">
+    </ListView>
+    
+    <Button 
+    	android:id="@+id/btnDefineOtherWord"
+    	android:text="@string/lblDefineAnotherWord"
+    	android:layout_width="match_parent"
+    	android:layout_height="60dp"
+    	android:layout_alignParentBottom="true">
+    </Button>
+
+</RelativeLayout>

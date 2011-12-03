@@ -21,82 +21,93 @@ public final class R {
         public static final int home=0x7f020003;
         public static final int icon=0x7f020004;
         public static final int icon_=0x7f020005;
-        public static final int map=0x7f020006;
-        public static final int settings=0x7f020007;
-        public static final int settings2=0x7f020008;
-        public static final int word_mapper=0x7f020009;
+        public static final int img_mapper=0x7f020006;
+        public static final int map=0x7f020007;
+        public static final int settings=0x7f020008;
+        public static final int settings2=0x7f020009;
+        public static final int sound_high=0x7f02000a;
+        public static final int word_mapper=0x7f02000b;
     }
     public static final class id {
-        public static final int Credits=0x7f070023;
-        public static final int Define=0x7f070020;
-        public static final int Donate=0x7f070024;
-        public static final int Home=0x7f07001f;
-        public static final int Mapper=0x7f070021;
-        public static final int Settings=0x7f070022;
-        public static final int btnApplySettings=0x7f07000e;
-        public static final int btnCancel=0x7f07001e;
-        public static final int btnCancelSettings=0x7f07000f;
-        public static final int btnCloseDefinition=0x7f070007;
-        public static final int btnDefine=0x7f070005;
-        public static final int btnReset=0x7f070006;
-        public static final int btnSingUp=0x7f07000c;
-        public static final int cmbDefaultDict=0x7f07000b;
-        public static final int cmbDictionaries=0x7f070003;
-        public static final int imageView1=0x7f070009;
-        public static final int lblCity=0x7f070018;
-        public static final int lblCountry=0x7f07001a;
-        public static final int lblDefaultDict=0x7f07000a;
-        public static final int lblDefinition=0x7f070008;
-        public static final int lblEmail=0x7f070016;
-        public static final int lblFirstName=0x7f070012;
-        public static final int lblLastName=0x7f070014;
-        public static final int lblPostCode=0x7f07001c;
-        public static final int lblWord=0x7f070001;
-        public static final int linearLayout=0x7f070004;
-        public static final int linearLayout1=0x7f07000d;
-        public static final int relativeLayout1=0x7f070000;
-        public static final int scrollView=0x7f070010;
-        public static final int singUpButtons=0x7f070011;
-        public static final int txtCity=0x7f070019;
-        public static final int txtCountry=0x7f07001b;
-        public static final int txtEmail=0x7f070017;
-        public static final int txtFirstName=0x7f070013;
-        public static final int txtLastName=0x7f070015;
-        public static final int txtPostCode=0x7f07001d;
-        public static final int txtWord2Define=0x7f070002;
+        public static final int Credits=0x7f080029;
+        public static final int Define=0x7f080026;
+        public static final int Donate=0x7f08002a;
+        public static final int Home=0x7f080025;
+        public static final int Mapper=0x7f080027;
+        public static final int Settings=0x7f080028;
+        public static final int btnApplySettings=0x7f080012;
+        public static final int btnCancel=0x7f080022;
+        public static final int btnCancelSettings=0x7f080013;
+        public static final int btnCloseDefinition=0x7f080007;
+        public static final int btnDefine=0x7f080005;
+        public static final int btnDefineOtherWord=0x7f08000c;
+        public static final int btnPlaySound=0x7f08000a;
+        public static final int btnReset=0x7f080006;
+        public static final int btnSingUp=0x7f080010;
+        public static final int cmbDefaultDict=0x7f08000f;
+        public static final int cmbDictionaries=0x7f080003;
+        public static final int imageView1=0x7f08000d;
+        public static final int imgMapper=0x7f080023;
+        public static final int lblCity=0x7f08001c;
+        public static final int lblCountry=0x7f08001e;
+        public static final int lblDefaultDict=0x7f08000e;
+        public static final int lblDefinition=0x7f080008;
+        public static final int lblEmail=0x7f08001a;
+        public static final int lblFirstName=0x7f080016;
+        public static final int lblLastName=0x7f080018;
+        public static final int lblPostCode=0x7f080020;
+        public static final int lblWord=0x7f080001;
+        public static final int lblWordDefined=0x7f080009;
+        public static final int linearLayout=0x7f080004;
+        public static final int linearLayout1=0x7f080011;
+        public static final int lstDefinitions=0x7f08000b;
+        public static final int relativeLayout1=0x7f080000;
+        public static final int scrollView=0x7f080014;
+        public static final int singUpButtons=0x7f080015;
+        public static final int textView1=0x7f080024;
+        public static final int txtCity=0x7f08001d;
+        public static final int txtCountry=0x7f08001f;
+        public static final int txtEmail=0x7f08001b;
+        public static final int txtFirstName=0x7f080017;
+        public static final int txtLastName=0x7f080019;
+        public static final int txtPostCode=0x7f080021;
+        public static final int txtWord2Define=0x7f080002;
     }
     public static final class layout {
         public static final int define=0x7f030000;
         public static final int definition_dialog=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int setting=0x7f030003;
-        public static final int singup=0x7f030004;
+        public static final int definitions=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int setting=0x7f030004;
+        public static final int singup=0x7f030005;
+        public static final int teste=0x7f030006;
     }
     public static final class menu {
-        public static final int menu=0x7f060000;
+        public static final int menu=0x7f070000;
     }
     public static final class string {
-        public static final int app_name=0x7f040016;
-        public static final int lblApplyAction=0x7f04000b;
-        public static final int lblCancelAction=0x7f04000c;
+        public static final int app_name=0x7f040017;
+        public static final int lblApplyAction=0x7f04000c;
+        public static final int lblCancelAction=0x7f04000d;
         public static final int lblChooseDefinition=0x7f040009;
-        public static final int lblCity=0x7f040011;
-        public static final int lblCountry=0x7f040012;
+        public static final int lblCity=0x7f040012;
+        public static final int lblCountry=0x7f040013;
         /**  Settings Activity labels 
  Settings Activity labels 
          */
-        public static final int lblDefaultDictionary=0x7f04000a;
+        public static final int lblDefaultDictionary=0x7f04000b;
         public static final int lblDefineAction=0x7f040007;
+        public static final int lblDefineAnotherWord=0x7f04000a;
         /**  Define Activity labels 
  Define Activity labels 
          */
         public static final int lblDefineWord=0x7f040006;
-        public static final int lblEmail=0x7f040010;
+        public static final int lblEmail=0x7f040011;
         /**   Sing up Activity labels 
   Sing up Activity labels 
          */
-        public static final int lblFirstName=0x7f04000e;
-        public static final int lblLastName=0x7f04000f;
+        public static final int lblFirstName=0x7f04000f;
+        public static final int lblLastName=0x7f040010;
         public static final int lblMenuCredits=0x7f040004;
         public static final int lblMenuDefine=0x7f040001;
         public static final int lblMenuDonate=0x7f040005;
@@ -106,10 +117,14 @@ public final class R {
         public static final int lblMenuHome=0x7f040000;
         public static final int lblMenuMapper=0x7f040002;
         public static final int lblMenuSettings=0x7f040003;
-        public static final int lblPostCode=0x7f040013;
-        public static final int lblRegisterAction=0x7f04000d;
+        public static final int lblPostCode=0x7f040014;
+        public static final int lblRegisterAction=0x7f04000e;
         public static final int lblResetAction=0x7f040008;
-        public static final int lblSingUp=0x7f040014;
-        public static final int msgSingUpFinished=0x7f040015;
+        public static final int lblSingUp=0x7f040015;
+        public static final int msgSingUpFinished=0x7f040016;
+    }
+    public static final class style {
+        public static final int relatedWord=0x7f060000;
+        public static final int relatedWord_img=0x7f060001;
     }
 }

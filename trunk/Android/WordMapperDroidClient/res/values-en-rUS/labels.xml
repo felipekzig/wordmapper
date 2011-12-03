@@ -16,6 +16,7 @@
 	<string name="lblResetAction">Reset</string>
 	
 	<string name="lblChooseDefinition">Choose the definition</string>
+	<string name="lblDefineAnotherWord">Define another word</string>
 
 	<!-- Settings Activity labels -->
 	<string name="lblDefaultDictionary">Default Dictionary: </string>
