@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.aonaware.services;
 
 import javax.jws.WebService;
@@ -9,7 +5,7 @@ import javax.xml.ws.BindingType;
 
 /**
  *
- * @author Felipe
+ * @author Felipe e Bruno
  */
 @WebService(serviceName = "DictService", portName = "DictServiceSoap12", endpointInterface = "com.aonaware.services.webservices.DictServiceSoap", targetNamespace = "http://services.aonaware.com/webservices/", wsdlLocation = "WEB-INF/wsdl/DictService/services.aonaware.com/DictService/DictService.asmx.wsdl")
 @BindingType(value = "http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/")
@@ -59,5 +55,4 @@ public class DictService {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
-    
 }

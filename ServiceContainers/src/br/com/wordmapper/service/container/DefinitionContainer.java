@@ -1,68 +1,39 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.wordmapper.service.container;
 
 import com.google.gson.Gson;
+import java.util.ArrayList;
 
 /**
  *
- * @author Felipe
+ * @author Felipe e Bruno
  */
 public class DefinitionContainer implements ContainerItf {
-    
-    private String Definition;
+
+    private ArrayList<String> Definition;
     private String Dictionary;
-    
-    public DefinitionContainer(String strDict, String strDef){
-        this.setDefinition(strDef);
+
+    public DefinitionContainer(String strDict, ArrayList<String> listDef) {
+        this.setDefinition(listDef);
         this.setDictionary(strDict);
     }
 
-    public void setDefinition(String strDefinition) {
-        this.Definition = this.formatDefinition(strDefinition);
+    public void setDefinition(ArrayList<String> listDef) {
+        this.Definition = listDef;
     }
-    public String getDefinition() {
+
+    public ArrayList<String> getDefinition() {
         return Definition;
     }
 
     public void setDictionary(String strDictionary) {
         this.Dictionary = strDictionary;
     }
+
     public String getDictionary() {
         return Dictionary;
     }
-    
-    private String formatDefinition(String Definition){
-        String strDefFormated = "";
-        
-        if (!Definition.isEmpty()){
-            Definition = Definition.trim().replaceAll("\\s+", " ");
-            strDefFormated = Definition;
-            /*
-            int intColchetess = 0;
-            int intIndexIni = 0;
-            for(int i=0; i<=Definition.length();i++){
-                if (Definition.charAt(i)=='['){
-                    intColchetess++;
-                    if (intColchetess==1) intIndexIni = i;
-                }
-                
-                if (Definition.charAt(i)==']'){
-                        intColchetess--;
-                        if (intColchetess==0){
-                            strDefFormated.replace(Definition.substring(intIndexIni, i), "");
-                        }
-                }
-            }*/
-        }
-        
-        return strDefFormated;
-    }
-    
-    public String getJson(){
+
+    public String getJson() {
         return new Gson().toJson(this, this.getClass());
     }
-  
 }
