@@ -2,46 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/relativeLayout1" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent">
-    
-    <TextView 
-    	android:id="@+id/lblWord"
-    	android:text="@string/lblDefineWord" 
-    	android:layout_width="wrap_content"  
-    	android:layout_height="wrap_content" 
-    	android:textAppearance="?android:attr/textAppearanceLarge"
-    	android:layout_alignBaseline="@+id/txtWord2Define" 
-    	android:layout_alignBottom="@+id/txtWord2Define" 
-    	android:layout_alignParentLeft="true">
-    </TextView>
-    
+    android:layout_height="fill_parent">  
     
     <EditText 
     	android:id="@+id/txtWord2Define" 
-    	android:layout_width="fill_parent" 
+    	android:text="@string/lblDefineWord"
+    	android:textColor="@color/editUnFocused"
+    	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content" 
-    	android:layout_alignParentTop="true" 
-    	android:layout_toRightOf="@+id/lblWord" 
-		android:layout_marginLeft="15dp"
-    	android:layout_alignParentRight="true">
-        <requestFocus></requestFocus>
+    	android:layout_alignParentTop="true"
+    	android:layout_alignParentLeft="true"  
+		android:layout_marginRight="8dp"
+		android:layout_marginTop="7dp"
+		android:layout_toLeftOf="@+id/btnPlaySound">
     </EditText>
     
-    <Spinner 
-    	android:id="@+id/cmbDictionaries"
-    	android:layout_width="wrap_content"
-    	android:layout_height="50dp"   
-    	android:layout_below="@+id/txtWord2Define" 
-    	android:layout_alignLeft="@+id/lblWord" 
-    	android:layout_alignRight="@+id/txtWord2Define">
-    </Spinner>
+    <ImageButton 
+    	android:id="@+id/btnPlaySound" 
+    	android:src="@drawable/sound_high"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"  
+    	android:layout_alignParentTop="true" 
+    	android:layout_alignParentRight="true">
+    </ImageButton>
     
-    <LinearLayout
-    	android:id="@+id/linearLayout" 
-    	android:orientation="horizontal"
+    <ExpandableListView 
+    	android:id="@+id/lstDefinitions"
     	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:layout_below="@+id/cmbDictionaries">
+    	android:layout_height="match_parent"
+    	android:layout_above="@+id/linearLayout"
+    	android:layout_below="@+id/btnPlaySound"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentRight="true">
+    
+    </ExpandableListView>
+    
+    <LinearLayout 
+    	android:id="@+id/linearLayout"
+		android:orientation="horizontal" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true" 
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true">
     
     	<Button 
     		android:id="@+id/btnDefine"

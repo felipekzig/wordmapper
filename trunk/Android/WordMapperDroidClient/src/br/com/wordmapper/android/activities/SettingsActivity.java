@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import br.com.wordmapper.android.actions.SettingsActions;
 
 public class SettingsActivity extends Activity {
     
@@ -17,7 +13,7 @@ public class SettingsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);    
-        
+ /*       
         SettingsActions actions = new SettingsActions(this);
 
         final Button btnSingUp = (Button) findViewById(R.id.btnSingUp);
@@ -33,7 +29,7 @@ public class SettingsActivity extends Activity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dictItens, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         
-        cmbDefaultDict.setAdapter(adapter);	        
+        cmbDefaultDict.setAdapter(adapter);*/	        
     }
 
     @Override
@@ -65,6 +61,7 @@ public class SettingsActivity extends Activity {
     private void showDefineActivity(){
     	Intent intent = new Intent(this, DefineActivity.class);
     	startActivity(intent);
+    	finish();
     }
     
 }

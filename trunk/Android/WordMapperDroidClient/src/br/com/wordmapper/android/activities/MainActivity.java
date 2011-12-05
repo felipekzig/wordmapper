@@ -3,6 +3,7 @@ package br.com.wordmapper.android.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +32,13 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch(item.getItemId()){
     		case R.id.Define:
+    			Log.d(AppSettings.TAG, "Define Activity");
     			this.showDefineActivity();
+    		break;
+    		
+    		case R.id.Mapper:
+    			Log.d(AppSettings.TAG, "Mapper Activity");
+    			this.showMapperActivity();
     		break;
     		
     		case R.id.Settings:
@@ -52,4 +59,8 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
+    private void showMapperActivity(){
+    	Intent intent = new Intent(this, MapperActivity.class);
+    	startActivity(intent);
+    }
 }

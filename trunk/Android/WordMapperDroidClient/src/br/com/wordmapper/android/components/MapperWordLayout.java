@@ -13,7 +13,7 @@ public class MapperWordLayout extends RelativeLayout {
 
 	public MapperWordLayout(Context context, String id, String word) {
 		super(context);
-
+		
 		txtWord = new TextView(context, null, R.style.relatedWord);
 		txtWord.setText(word);
 		

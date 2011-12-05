@@ -44,7 +44,7 @@ public class DefinitionsActivity extends Activity implements OnInitListener {
 		@SuppressWarnings("unchecked")
 		final ArrayList<CharSequence> lstCompressDef = (ArrayList<CharSequence>) lstDefinitionsString.clone();
 		for (int i = 0; i < lstCompressDef.size(); i++) {
-			lstCompressDef.set(i, lstCompressDef.get(i).subSequence(0, 20));
+			lstCompressDef.set(i, lstCompressDef.get(i).subSequence(0, 10));
 		}
 		
 		final TextView wordLabel = (TextView) findViewById(R.id.lblWordDefined);
