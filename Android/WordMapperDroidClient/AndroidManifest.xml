@@ -21,5 +21,7 @@
         <activity android:name="SettingsActivity"></activity>
 		<activity android:name="SingUpActivity"></activity>
 		
+		<activity android:name="MapperActivity"></activity>
+		
     </application>
 </manifest>

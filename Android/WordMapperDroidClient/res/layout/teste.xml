@@ -16,14 +16,10 @@
 	    	android:id="@+id/imgMapper"
 	    	style="@style/relatedWord_img">	 
 	    </ImageView>
-	     
 	    <TextView 
+	    	style="@style/relatedWord" 
 	    	android:text="Understand" 
-	    	android:id="@+id/textView1" 	    	
-	    	style="@style/relatedWord"
-	    	android:layout_toRightOf="@+id/imgMapper"
-	    	android:layout_marginLeft="3dp">
-	    </TextView>
+	    	android:id="@+id/textView1"  android:layout_toRightOf="@+id/imgMapper"></TextView>
 	    
     </RelativeLayout>
     

@@ -3,7 +3,7 @@
 
     <item android:id="@+id/Home" android:title="@string/lblMenuHome" android:icon="@drawable/home"/>
     <item android:id="@+id/Define" android:title="@string/lblMenuDefine" android:icon="@drawable/define"/>
-    <item android:id="@+id/Mapper" android:title="@string/lblMenuMapper" android:enabled="false" android:icon="@drawable/map"/>
+    <item android:id="@+id/Mapper" android:title="@string/lblMenuMapper" android:icon="@drawable/map"/>
     
     <item android:id="@+id/Settings" android:title="@string/lblMenuSettings" android:icon="@drawable/settings"/>
     <item android:id="@+id/Credits" android:title="@string/lblMenuCredits" android:icon="@drawable/cert"/>

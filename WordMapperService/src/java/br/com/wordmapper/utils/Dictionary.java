@@ -80,8 +80,10 @@ public class Dictionary {
 
     private ArrayList<String> formatDefinitions(String definition, String idDict) {
         String regex;
-        regex = "\\d(:|\\.)\\s.*?;";
-        if(idDict=="gcide") regex = "\\d(:|\\.)\\s.*?\\.";
+        regex = "\\d{1,2}(:|\\.)\\s[^\\[|\\(].+?;"; 
+        if(idDict.equalsIgnoreCase("gcide")) regex = "\\d{1,2}(:|\\.)\\s[^\\[|\\(].+?\\.";
+        
+        definition = definition.replaceAll("\\s+"," ");
         
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(definition);
@@ -91,7 +93,7 @@ public class Dictionary {
         while (m.find()) {
             formatedDefinitionList.add(m.group().replace(";", "").replaceFirst(":", "."));
         }
-        
+
         return formatedDefinitionList;
 
     }

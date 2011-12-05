@@ -8,6 +8,13 @@ public final class DefineService extends WMService {
 
 	private DefineContainer responseObject;
 	private DefineContainer requestObject;
+
+	public DefineService(String word){
+		super.setTpOperation(WMService.DEFINE_OPERATION);
+		
+		requestObject = new DefineContainer();
+		requestObject.setWord(word);
+	}	
 	
 	public DefineService(String word, String idMainDict){
 		super.setTpOperation(WMService.DEFINE_OPERATION);
