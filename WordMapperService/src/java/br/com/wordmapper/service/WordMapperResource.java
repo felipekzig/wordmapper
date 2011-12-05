@@ -6,6 +6,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import br.com.wordmapper.utils.Dictionary;
+import br.com.wordmapper.utils.Mapper;
 import br.com.wordmapper.utils.UsersSingUp;
 import java.net.URLDecoder;
 
@@ -20,6 +21,7 @@ public class WordMapperResource {
 
     private static final int DEFINE_OPERATION = 0;
     private static final int SINGUP_OPERATION = 1;
+    private static final int MAPPER_OPERATION = 2;
 
     @GET
     @Path("{IdOperation}/{json}")
@@ -28,9 +30,10 @@ public class WordMapperResource {
         switch (idOperation) {
             case DEFINE_OPERATION:
                 return this._defineOperation(URLDecoder.decode(json));
-
             case SINGUP_OPERATION:
                 return this._singUpOperation(URLDecoder.decode(json));
+            case MAPPER_OPERATION:
+                return this._mapperOperation(URLDecoder.decode(json));
         }
         return this.getErrorJson("A operção solicitada é inválida ou não foi implementada.");
     }
@@ -55,6 +58,18 @@ public class WordMapperResource {
         }
 
         return user.getResponse();
+    }
+    
+     private String _mapperOperation(String json) {
+        try {
+            Mapper map = new Mapper(json);
+
+            map.execute();
+
+            return map.getResponse();
+        } catch (Exception e) {
+            return this.getErrorJson(e.getLocalizedMessage());
+        }
     }
 
     public String getErrorJson(String msg) {
