@@ -121,6 +121,7 @@ public class UserContainer implements ContainerItf {
 
         MessageDigest md;
         BigInteger hash;
+        
         try {
             md = MessageDigest.getInstance("MD5");
             hash = new BigInteger(1, md.digest(dados.getBytes("UTF-8")));
