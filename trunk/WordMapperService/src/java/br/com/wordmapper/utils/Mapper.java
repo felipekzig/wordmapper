@@ -53,7 +53,7 @@ public class Mapper {
         ArrayList<String> antonyms = new ArrayList<String>();
 
         while (m.find()) {
-            String[] ants = m.group().replace("[ant:", "").replace("]", "").split(",");
+            String[] ants = m.group().replace("[ant:", "").replace("]", "").replaceAll(" ", "").replaceAll("\\{", "").replaceAll("\\}", "").split(",");
             antonyms.addAll(Arrays.asList(ants));
         }
         return antonyms;
@@ -71,7 +71,7 @@ public class Mapper {
         ArrayList<String> synonymous = new ArrayList<String>();
 
         while (m.find()) {
-            String[] syns = m.group().replace("[syn:", "").replace("]", "").split(",");
+            String[] syns = m.group().replace("[syn:", "").replace("]", "").replaceAll(" ", "").replaceAll("\\{", "").replaceAll("\\}", "").split(",");
             synonymous.addAll(Arrays.asList(syns));
         }
         return synonymous;

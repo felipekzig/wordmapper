@@ -9,16 +9,16 @@ import java.util.ArrayList;
  */
 public class MapperContainer implements ContainerItf {
 
-    private String word;
+    private String Word;
     private ArrayList<String> antonyms;
     private ArrayList<String> synonymous;
 
     public String getWord() {
-        return this.word;
+        return this.Word;
     }
 
     public void setWord(String word) {
-        this.word = word;
+        this.Word = word;
     }
 
     public ArrayList<String> getAntonyms() {

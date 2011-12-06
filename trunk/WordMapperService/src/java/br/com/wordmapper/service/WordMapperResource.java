@@ -35,7 +35,7 @@ public class WordMapperResource {
             case MAPPER_OPERATION:
                 return this._mapperOperation(URLDecoder.decode(json));
         }
-        return this.getErrorJson("A operção solicitada é inválida ou não foi implementada.");
+        return this.getErrorJson("A operção solicitada é inválida ou não foi implementada.").toString();
     }
 
     private String _defineOperation(String json) {
