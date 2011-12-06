@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import br.com.wordmapper.android.custom.views.LineDrawableView;
@@ -59,11 +62,28 @@ public class ShowMapActivity extends Activity {
 	}
 	
 	private TextView createTextView(Context context, String text){
-		TextView textView = new TextView(context);
+		final TextView textView = new TextView(context);
 		textView.setText(text);
+		textView.setTag(text);
 		textView.setSingleLine(true);
 		textView.setTextAppearance(context, android.R.style.TextAppearance_Medium);
-		textView.setTextColor(Color.BLACK);		
+		textView.setTextColor(Color.BLACK);	
+		
+		textView.setOnLongClickListener(new OnLongClickListener() {
+			
+			public boolean onLongClick(View v) {
+				
+				Intent i = new Intent(v.getContext(), DefineActivity.class);
+				
+				Bundle b = new Bundle();
+				b.putString(DefineActivity.defineWordKey, (String) v.getTag());		
+				
+				i.putExtras(b);
+				ShowMapActivity.this.startActivity(i);
+				
+				return false;
+			}
+		});
 		
 		return textView;
 	}
@@ -144,28 +164,6 @@ public class ShowMapActivity extends Activity {
 	}
 
 	private void linkWithMainWord(RelativeLayout layout, RelativeLayout mainLayout, boolean isSynonym){
-	/*	
-		float top;
-		
-		float x0;
-		float x1;
-		
-		int aux = ((strMainWord.length() - 4)>0)? Math.round((strMainWord.length()-4)/2) : 0; 
-		
-		if (isSynonym){
-			top = (float) (((countSynWords - 1) * (30 + ((5 - qtdSynWords) * 9)) + 9));
-			
-			x0 = 99 - (aux * 4);
-			x1 = 180 - (aux * 4);		
-		} else {
-			top = (float) (((countAntWords - 1) * (30 + ((5 - qtdAntWords) * 9)) + 9));
-			
-			if (aux==2) aux = 1;
-			
-			x0 = 295 + (aux * 4);
-			x1 = 221 + (aux * 4);			
-		}
-		*/
 		
 		LineDrawableView line = new LineDrawableView(layout.getContext());
 		line.setBackgroundColor(Color.TRANSPARENT);

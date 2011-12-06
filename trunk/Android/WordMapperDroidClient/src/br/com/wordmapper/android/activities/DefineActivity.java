@@ -20,6 +20,8 @@ public class DefineActivity extends Activity implements OnInitListener {
 	
 	public static final Integer RequestCode = 1;
 	
+	public static final String defineWordKey = "DEFINE_WORD";
+	
 	public TextToSpeech speech;
 	
 	@Override
@@ -46,6 +48,15 @@ public class DefineActivity extends Activity implements OnInitListener {
         listView.setOnChildClickListener(actions);     
       
         this.checkTTSAvailable();
+        
+        Bundle b = getIntent().getExtras();
+        if (b != null){
+	        final String wordToDefine = b.getString(defineWordKey);
+	        if (wordToDefine != null){
+	        	txtWord2Define.setText(wordToDefine);
+	        	actions.onClick(btnDefine);
+	        }
+        }
     }
    
     @Override
