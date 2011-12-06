@@ -103,6 +103,7 @@ public class DefineActions implements OnClickListener, OnFocusChangeListener, On
 	private void playSound(){
 		final TextView lblWordDefined = (TextView) defineActivity.findViewById(R.id.txtWord2Define);
 		try {
+			Log.i(AppSettings.TAG, "FALA PORRA");
 			defineActivity.speech.speak(lblWordDefined.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
 		} catch (Exception e){
 			Log.e(AppSettings.TAG, "ERRO", e);

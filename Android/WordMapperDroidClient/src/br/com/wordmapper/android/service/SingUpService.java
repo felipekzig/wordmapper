@@ -14,7 +14,6 @@ public final class SingUpService extends WMService {
 	
 	public SingUpService(UserContainer user){
 		super.setTpOperation(WMService.SINGUP_OPERATION);
-		
 		requestObject = user;
 	}
 	

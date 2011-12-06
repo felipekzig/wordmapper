@@ -1,9 +1,9 @@
 package br.com.wordmapper.android.activities;
 
-import br.com.wordmapper.android.actions.SingUpActions;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
+import br.com.wordmapper.android.actions.SingUpActions;
 
 public class SingUpActivity extends Activity {
 	
@@ -18,7 +18,8 @@ public class SingUpActivity extends Activity {
 	        btnSingUp.setOnClickListener(actions);
 	        
 	        final Button btnCancel = (Button) findViewById(R.id.btnCancel);
-	        btnCancel.setOnClickListener(actions);	        
+	        btnCancel.setOnClickListener(actions);	       
+	      
 	   }
 	      
 }

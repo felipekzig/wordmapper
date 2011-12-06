@@ -3,17 +3,28 @@ package br.com.wordmapper.android.activities;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import br.com.wordmapper.android.custom.views.LineDrawableView;
 import br.com.wordmapper.android.utils.AppSettings;
 
 public class MapperActivity extends Activity {
 	
-	private final static int idMainWord = 2228241;
+	private static int idMainWord = 21329128;
 	
-	private int countWords = 0;
+	private final int MAX_WORDS = 5;
+	
+	private int countSynWords = 1;
+	private int countAntWords = 1;
+	
+	private int qtdSynWords;
+	private int qtdAntWords;
+	
+	private RelativeLayout mapperLayout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,148 +44,169 @@ public class MapperActivity extends Activity {
 		ant.add("lazy3");
 		ant.add("lazy4");
 		
-		final RelativeLayout layout = new RelativeLayout(this);
+		mapperLayout = new RelativeLayout(this);
+		mapperLayout.setBackgroundColor(Color.WHITE);
+		setContentView(mapperLayout);
 		
 		final RelativeLayout mainWord = addMainWord("Understand");
 		
-		layout.addView(mainWord);
+		qtdSynWords = 3;
 		
-		layout.addView(addRelatedWord("Lazylazy", mainWord, false));
-		layout.addView(addRelatedWord("Lazylazy2", mainWord, false));
-		layout.addView(addRelatedWord("Lazylazy3", mainWord, false));
+		qtdAntWords = 3;
 		
-		layout.addView(addRelatedWord("Lazylazy4", mainWord, false));
-		layout.addView(addRelatedWord("Lazylazy5", mainWord, false));
-		layout.addView(addRelatedWord("Lazylazy6", mainWord, false));
+		addRelatedWord("Lazylazy1", mainWord, true);
+		addRelatedWord("Lazylazy1", mainWord, true);
+		addRelatedWord("Lazylazy1", mainWord, true);
+		//addRelatedWord("Lazylazy1", mainWord, true);
+		//addRelatedWord("Lazylazy1", mainWord, true);
 		
-		setContentView(layout);
+		addRelatedWord("Lazylazy4", mainWord, false);
+		addRelatedWord("Lazylazy4", mainWord, false);
+		addRelatedWord("Lazylazy4", mainWord, false);
 		
 	}
 	
-	private RelativeLayout addWord(String word){
-		try {
-			
-			RelativeLayout container = new RelativeLayout(this);
+	private TextView createTextView(Context context, String text){
+		TextView textView = new TextView(context);
+		textView.setText(text);
+		textView.setSingleLine(true);
+		textView.setTextAppearance(context, android.R.style.TextAppearance_Medium);
+		textView.setTextColor(Color.BLACK);		
 		
-			Button btnWord = new Button(container.getContext());
-			btnWord.setText(word);
-			btnWord.setSingleLine(true);
-			btnWord.setMinWidth(80);
-			
-			container.addView(btnWord);
-			return container;
-			
-		} catch (Exception e){
-			Log.e(AppSettings.TAG, "Error while adding a new word", e);
-		}
-		
-		return null;
+		return textView;
 	}
-	
+
+/*	
+	private ImageView createImageView(Context context, int id){
+		ImageView imgRelated = new ImageView(context);
+		imgRelated.setImageResource(R.drawable.img_mapper);
+		imgRelated.setId(id);
+		
+		return imgRelated;
+	}
+*/	
+
 	private RelativeLayout addMainWord(String word){
 		try {
-			RelativeLayout container = this.addWord(word);
-			container.setId(idMainWord);
+			
+			RelativeLayout container = new RelativeLayout(this);	
 			
 			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 			params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 			
 			container.setLayoutParams(params);
+			container.setId(idMainWord);
+			
+			container.addView(createTextView(container.getContext(), word));		
+			
+			mapperLayout.addView(container);
 			
 			return container;
+			
 		} catch (Exception e) {
 			Log.e(AppSettings.TAG, "Error while adding a new word", e);
 		}
 		
 		return null;
 	}
-	
-	private RelativeLayout addRelatedWord(String word, RelativeLayout mainWord, boolean isSynonym){
+
+	private void addRelatedWord(String word, RelativeLayout mainWord, boolean isSynonym){
 		
 		try {
+	
+			RelativeLayout container = new RelativeLayout(this);
+			container.setLayoutParams(getLayoutParams(isSynonym));
 			
-			RelativeLayout container = this.addWord(word);
-			container.setLayoutParams(getLayoutParams());
+			TextView txtWord = createTextView(container.getContext(), word);
+			txtWord.setId(Math.abs(word.hashCode()));
 			
-			countWords++;
+			//ImageView imageView = createImageView(container.getContext(), Math.abs((word + "_img").hashCode()));
+			//imageView.setLayoutParams(getImageParams(isSynonym, txtWord.getId()));
 			
-			return container;
+			container.addView(txtWord);
+			//container.addView(imageView);
+			mapperLayout.addView(container);
+			
+			linkWithMainWord(container, isSynonym);
 			
 		} catch (Exception e){
 			Log.e(AppSettings.TAG, "Error while adding a new word", e);
 		}
 		
-		return null;
 	}
-	
-	private RelativeLayout.LayoutParams getLayoutParams(){
+
+	private RelativeLayout.LayoutParams getLayoutParams(boolean isSynonym){
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		
-		if (countWords == 0) {
-			Log.i(AppSettings.TAG, "0");
+		int index;
+		
+		int aux = 30;
+		
+		if (isSynonym){
 			params.addRule(RelativeLayout.LEFT_OF, idMainWord);
-			params.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
-			params.setMargins(0, 0, 70, 0);
+			params.rightMargin = 65;
 			
-		} else if (countWords <= 2) {
-			Log.i(AppSettings.TAG, "1 2");
-			params = layoutParams1();
 			
-		} else if (countWords == 3){
-			Log.i(AppSettings.TAG, "3");
-			params.addRule(RelativeLayout.ABOVE, idMainWord);
-			params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-			params.setMargins(0, 0, 0, 45);
+			aux += (5 - qtdSynWords) * 9;
 			
-		} else if (countWords <= 5) {
-			Log.i(AppSettings.TAG, "4 5");
-			params = layoutParams2();
+			index = countSynWords;	
+			countSynWords++;
+		} else {
+			params.addRule(RelativeLayout.RIGHT_OF, idMainWord);
+			params.leftMargin = 80;
 			
-		} else if (countWords <= 8) {
+			aux += (5 - qtdAntWords) * 9;
 			
-			params = layoutParams3();
-			
-		} else if (countWords <= 11) {
-			
-			params = layoutParams4();
-			
+			index = countAntWords;	
+			countAntWords++;
 		}
 		
-		return params;
-	}
-	
-	private RelativeLayout.LayoutParams layoutParams1(){
-		Log.d(AppSettings.TAG, "Defining layout params 1");
-		
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		
-		params.addRule(RelativeLayout.LEFT_OF, idMainWord);
-		params.addRule(RelativeLayout.ABOVE, idMainWord);
-		params.setMargins(0, 0, 70 - (countWords * 30), (countWords-1) * 35);
+		params.topMargin = index * aux;
 		
 		return params;
 	}
 	
-	private RelativeLayout.LayoutParams layoutParams2(){
-		Log.d(AppSettings.TAG, "Defining layout params 2");
+/*	
+	private RelativeLayout.LayoutParams getImageParams(boolean isSynonym, int id){
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		
-		params.addRule(RelativeLayout.RIGHT_OF, idMainWord);
-		params.addRule(RelativeLayout.ABOVE, idMainWord);
-		params.setMargins(((Math.round(countWords+1/2) - 1) * 10), 0, 0, (Math.round(countWords+1/2)-1) * 35);
+		params.addRule(RelativeLayout.CENTER_VERTICAL);
 		
-		return params;	
-	}
-	
-	private RelativeLayout.LayoutParams layoutParams3(){
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		
-		return params;		
-	}
-	
-	private RelativeLayout.LayoutParams layoutParams4(){
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		
-		return params;		
+		if (isSynonym){
+			params.addRule(RelativeLayout.RIGHT_OF, id);
+			params.leftMargin = 3;
+		} else {
+			params.addRule(RelativeLayout.LEFT_OF, id);
+			params.rightMargin = 60;	
+		}
+			
+		return params;
 	}	
+*/	
+
+	private void linkWithMainWord(RelativeLayout layout, boolean isSynonym){
+		
+		float top;
+		
+		float x0;
+		float x1;
+		
+		if (isSynonym){
+			top = (float) (((countSynWords - 1) * (30 + ((5 - qtdSynWords) * 9)) + 8.7));
+			x0 = 99;
+			x1 = 160;		
+		} else {
+			top = (float) (((countAntWords - 1) * (30 + ((5 - qtdAntWords) * 9)) + 8.7));
+			x0 = 315;
+			x1 = 241;			
+		}
+
+		
+		LineDrawableView line = new LineDrawableView(layout.getContext(), new float[]{x0, top, x1, 101});
+		line.setBackgroundColor(Color.TRANSPARENT);
+	
+		mapperLayout.addView(line);
+
+	}
+	
 }

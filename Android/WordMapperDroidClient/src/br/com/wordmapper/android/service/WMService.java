@@ -19,6 +19,7 @@ public abstract class WMService {
 	
 	protected static final int DEFINE_OPERATION = 0;
 	protected static final int SINGUP_OPERATION = 1;
+	protected static final int MAPPER_OPERATION = 2;
 	
 	public WMService(){	}
 		
