@@ -116,6 +116,8 @@ public class DefineActions implements OnClickListener, OnFocusChangeListener, On
 		
 		for(DefinitionContainer definition : definitons) adapter.addItem(definition);
 		lstDefinitions.setAdapter(adapter);
+		
+		lstDefinitions.expandGroup((AppSettings.idDefaultDict.equals("gcide")) ? 0 : 1);
 	}
 
 	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {

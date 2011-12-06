@@ -9,6 +9,7 @@ package br.com.wordmapper.android.activities;
 
 public final class R {
     public static final class array {
+        public static final int codeCountries=0x7f050002;
         public static final int dictItens=0x7f050000;
         public static final int dictsIds=0x7f050001;
     }
@@ -39,14 +40,14 @@ public final class R {
         public static final int word_mapper=0x7f020011;
     }
     public static final class id {
-        public static final int Credits=0x7f09002b;
-        public static final int Define=0x7f090028;
-        public static final int Donate=0x7f09002c;
-        public static final int Home=0x7f090027;
-        public static final int Mapper=0x7f090029;
-        public static final int Settings=0x7f09002a;
+        public static final int Credits=0x7f09002c;
+        public static final int Define=0x7f090029;
+        public static final int Donate=0x7f09002d;
+        public static final int Home=0x7f090028;
+        public static final int Mapper=0x7f09002a;
+        public static final int Settings=0x7f09002b;
         public static final int btnApplySettings=0x7f090016;
-        public static final int btnCancel=0x7f090026;
+        public static final int btnCancel=0x7f090027;
         public static final int btnCancelAction=0x7f090011;
         public static final int btnCancelSettings=0x7f090017;
         public static final int btnCloseDefinition=0x7f090008;
@@ -57,6 +58,7 @@ public final class R {
         public static final int btnReset=0x7f090007;
         public static final int btnSingUp=0x7f090014;
         public static final int child_name=0x7f090000;
+        public static final int cmbCountry=0x7f090024;
         public static final int cmbDefaultDict=0x7f090013;
         public static final int group_name=0x7f09000d;
         public static final int imageView1=0x7f09000e;
@@ -68,7 +70,7 @@ public final class R {
         public static final int lblEmail=0x7f09001e;
         public static final int lblFirstName=0x7f09001a;
         public static final int lblLastName=0x7f09001c;
-        public static final int lblPostCode=0x7f090024;
+        public static final int lblPostCode=0x7f090025;
         public static final int lblWordDefined=0x7f09000a;
         public static final int linearLayout=0x7f090005;
         public static final int linearLayout1=0x7f090015;
@@ -81,7 +83,7 @@ public final class R {
         public static final int txtEmail=0x7f09001f;
         public static final int txtFirstName=0x7f09001b;
         public static final int txtLastName=0x7f09001d;
-        public static final int txtPostCode=0x7f090025;
+        public static final int txtPostCode=0x7f090026;
         public static final int txtWord2Define=0x7f090002;
         public static final int txtWord2Map=0x7f09000f;
     }
