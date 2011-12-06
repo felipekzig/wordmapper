@@ -60,6 +60,8 @@ public class SingUpActions implements OnClickListener {
 			
 			service.execute();
 			
+			Log.i(AppSettings.TAG, service.getResponseJson());
+			
 			Toast msg = Toast.makeText(singUpActivity, singUpActivity.getResources().getString(R.string.msgSingUpFinished), Toast.LENGTH_LONG);
 			msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
 			msg.show();

@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import br.com.wordmapper.android.actions.SettingsActions;
+import br.com.wordmapper.android.utils.AppSettings;
 
 public class SettingsActivity extends Activity {
     
@@ -13,11 +18,12 @@ public class SettingsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);    
- /*       
+        
         SettingsActions actions = new SettingsActions(this);
 
         final Button btnSingUp = (Button) findViewById(R.id.btnSingUp);
         btnSingUp.setOnClickListener(actions);
+        if (!AppSettings.userLicense.equals("")) btnSingUp.setEnabled(false);
 
         final Button btnApplySettings = (Button) findViewById(R.id.btnApplySettings);
         btnApplySettings.setOnClickListener(actions);        
@@ -29,7 +35,7 @@ public class SettingsActivity extends Activity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dictItens, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         
-        cmbDefaultDict.setAdapter(adapter);*/	        
+        cmbDefaultDict.setAdapter(adapter);       
     }
 
     @Override
