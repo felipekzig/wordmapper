@@ -1,27 +1,27 @@
 package br.com.wordmapper.android.service;
 
-import br.com.wordmapper.service.container.DefineContainer;
+import br.com.wordmapper.service.container.MapperContainer;
 
 import com.google.gson.Gson;
 
 public class MapperService extends WMService {
 
-	private DefineContainer responseObject;
-	private DefineContainer requestObject;
+	private MapperContainer responseObject;
+	private MapperContainer requestObject;
 
 	public MapperService(String word){
-		super.setTpOperation(WMService.DEFINE_OPERATION);
+		super.setTpOperation(WMService.MAPPER_OPERATION);
 		
-		requestObject = new DefineContainer();
+		requestObject = new MapperContainer();
 		requestObject.setWord(word);
 	}	
 	
-	public DefineContainer getResponseObject(){
+	public MapperContainer getResponseObject(){
 		return this.responseObject;
 	}
 	
 	private void parseJson(){
-		this.responseObject = new Gson().fromJson(this.getResponseJson(), DefineContainer.class);
+		this.responseObject = new Gson().fromJson(this.getResponseJson(), MapperContainer.class);
 	}
 	
 	public void execute() throws Exception{

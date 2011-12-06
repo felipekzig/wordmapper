@@ -11,13 +11,16 @@
     <string name="lblMenuDonate">Donate</string> 
 
 	<!-- Define Activity labels -->
-	<string name="lblDefineWord">Word: </string>
+	<string name="lblDefineWord">Word </string>
 	<string name="lblDefineAction">Define</string>
 	<string name="lblResetAction">Reset</string>
 	
 	<string name="lblChooseDefinition">Choose the definition</string>
 	<string name="lblDefineAnotherWord">Define another word</string>
-
+	
+	<!-- Mapper Activity labels -->
+	<string name="lblMapAction">Map</string>
+	
 	<!-- Settings Activity labels -->
 	<string name="lblDefaultDictionary">Default Dictionary: </string>
 	<string name="lblApplyAction">Apply</string>
