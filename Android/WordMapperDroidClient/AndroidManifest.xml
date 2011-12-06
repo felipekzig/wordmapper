@@ -22,6 +22,7 @@
 		<activity android:name="SingUpActivity"></activity>
 		
 		<activity android:name="MapperActivity"></activity>
+		<activity android:name="ShowMapActivity"></activity>
 		
     </application>
 </manifest>
